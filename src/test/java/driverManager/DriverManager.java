@@ -1,4 +1,4 @@
-package webdriver;
+package driverManager;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,10 +8,10 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 
-public class DriverFactory {
+public class DriverManager {
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
-    private DriverFactory() {}
+    public DriverManager() {}
 
     public static WebDriver getDriver(String browser, boolean headless) {
         if (driver.get() == null) {

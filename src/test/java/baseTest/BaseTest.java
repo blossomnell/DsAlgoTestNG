@@ -8,23 +8,23 @@ import org.testng.annotations.AfterClass;
 //import org.testng.annotations.DataProvider;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Parameters;
-import webdriver.DriverFactory;
+
+import driverManager.DriverManager;
 
 	
 	public class BaseTest {    
 		protected static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-	    
-	    
-	  @BeforeClass
+	        
+	  @BeforeClass(alwaysRun = true)
 	    @Parameters({"browser", "headless"})
 	    public void setUp(String browser, String headless) {
 	        boolean isHeadless = Boolean.parseBoolean(headless); 
 	        System.out.println("Initializing WebDriver for browser: " + browser + ", headless: " + isHeadless);
-	        driver.set(DriverFactory.getDriver(browser, isHeadless));
+	        driver.set(DriverManager.getDriver(browser, isHeadless));
 	    
 	    }
 	    
-	    @AfterClass
+	    @AfterClass(alwaysRun = true)
 	    public void tearDown() {
 	        if (driver.get() != null) {
 	            System.out.println("Quitting WebDriver for thread: " + Thread.currentThread().getName());
