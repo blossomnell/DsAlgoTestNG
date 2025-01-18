@@ -12,21 +12,21 @@
         <parameter name="browser" value="chrome" />
         <parameter name="headless" value="false" />
         <classes>
-            <class name="testRunner.CucumberTest" />
+            <class name="Tests.LoginPageTests" />
         </classes>
     </test>
     <test name="FirefoxTest">
         <parameter name="browser" value="firefox" />
         <parameter name="headless" value="false" />
         <classes>
-            <class name="testRunner.CucumberTest" />
+            <class name="Tests.LoginPageTests" />
         </classes>
     </test>
     <test name="EdgeTest">
         <parameter name="browser" value="edge" />
         <parameter name="headless" value="false" />
         <classes>
-            <class name="testRunner.CucumberTest" />
+            <class name="Tests.LoginPageTests" />
         </classes>
     </test>
 </suite> 
