@@ -1,20 +1,20 @@
 package baseTest;
 
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
+//import org.testng.annotations.DataProvider;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 //import org.testng.annotations.BeforeClass;
 //import org.testng.annotations.DataProvider;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Parameters;
-
-import io.cucumber.testng.AbstractTestNGCucumberTests;
 import webdriver.DriverFactory;
 
-public class BaseTest extends AbstractTestNGCucumberTests {
-	private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-		
+	
+	public class BaseTest {    
+		protected static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+	    
+	    
 	  @BeforeClass
 	    @Parameters({"browser", "headless"})
 	    public void setUp(String browser, String headless) {
@@ -44,11 +44,11 @@ public class BaseTest extends AbstractTestNGCucumberTests {
 	        return driver.get();
 	    }
 	    
-	    //@Override
-	    @DataProvider(parallel = false) 
-	    public Object[][] scenarios() {
-	        return super.scenarios();
-	}
+//	    //@Override
+//	    @DataProvider(parallel = false) 
+//	    public Object[][] scenarios() {
+//	        return super.scenarios();
+//	}
 	}
 
 	 
