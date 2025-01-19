@@ -1,16 +1,11 @@
 package baseTest;
 
 import org.testng.annotations.BeforeClass;
-//import org.testng.annotations.DataProvider;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
-//import org.testng.annotations.BeforeClass;
-//import org.testng.annotations.DataProvider;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Parameters;
-
 import driverManager.DriverManager;
-
 	
 	public class BaseTest {    
 		protected static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
@@ -20,8 +15,7 @@ import driverManager.DriverManager;
 	    public void setUp(String browser, String headless) {
 	        boolean isHeadless = Boolean.parseBoolean(headless); 
 	        System.out.println("Initializing WebDriver for browser: " + browser + ", headless: " + isHeadless);
-	        driver.set(DriverManager.getDriver(browser, isHeadless));
-	    
+	        driver.set(DriverManager.getDriver(browser, isHeadless));    
 	    }
 	    
 	    @AfterClass(alwaysRun = true)
@@ -44,11 +38,6 @@ import driverManager.DriverManager;
 	        return driver.get();
 	    }
 	    
-//	    //@Override
-//	    @DataProvider(parallel = false) 
-//	    public Object[][] scenarios() {
-//	        return super.scenarios();
-//	}
 	}
 
 	 

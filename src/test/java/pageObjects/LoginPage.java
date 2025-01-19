@@ -1,37 +1,37 @@
 package pageObjects;
 
-import java.io.IOException;
+//import java.io.IOException;
 import java.util.Objects;
 import java.util.Properties;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import Utilities.ExcelReader;
-import Utilities.configReader;
-import baseTest.BaseTest;
+//import org.openqa.selenium.support.PageFactory;
+//import Utilities.ExcelReader;
+//import Utilities.configReader;
+//import baseTest.BaseTest;
 
 public class LoginPage {
 
     WebDriver driver;
     Properties prop;
-    ExcelReader excelReader;  // Add ExcelReader instance
-
-    public LoginPage() {
-        this.driver = BaseTest.getDriver();
-        PageFactory.initElements(driver, this);
-        configReader reader = new configReader();
-        prop = reader.init_prop();
-        
-        // Initialize ExcelReader with file path
-        String filePath = System.getProperty("user.dir") + "/" + prop.getProperty("excelFilePath");
-        try {
-            excelReader = new ExcelReader(filePath);
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to load Excel file: " + e.getMessage(), e);
-        }
-    }
+//    ExcelReader excelReader;  // Add ExcelReader instance
+//
+//    public LoginPage() {
+//        this.driver = BaseTest.getDriver();
+//        PageFactory.initElements(driver, this);
+//        configReader reader = new configReader();
+//        prop = reader.init_prop();
+//        
+//        // Initialize ExcelReader with file path
+//        String filePath = System.getProperty("user.dir") + "/" + prop.getProperty("excelFilePath");
+//        try {
+//            excelReader = new ExcelReader(filePath);
+//        } catch (IOException e) {
+//            throw new RuntimeException("Failed to load Excel file: " + e.getMessage(), e);
+//        }
+//    }
 	
 	@FindBy(id = "id_username")
 	WebElement txt_username;
@@ -132,8 +132,8 @@ public class LoginPage {
 		return getLoginMessage().equals(expectedMessage);
 	}
 
-	public String getTestData(String sheetName, int row, int col) {
-        return excelReader.getCellData(sheetName, row, col);
-    
-	}
+//	public String getTestData(String sheetName, int row, int col) {
+//        return excelReader.getCellData(sheetName, row, col);
+//    
+//	}
 }
