@@ -67,17 +67,14 @@ public class LoginPage {
 	}
 
 	public Boolean isUsernameFieldDisplayed() {
-		//return txt_username != null;
 		return txt_username.isDisplayed();
 	}
 
 	public Boolean isPasswordFieldDisplayed() {
-		//return txt_password != null; 
 		return txt_password.isDisplayed();
 	}
 
 	public Boolean isLoginButtonDisplayed() {
-		//return login_btn != null;
 		return login_btn.isDisplayed();
 	}
 	
@@ -99,7 +96,7 @@ public class LoginPage {
 	}
 
 	public String getLoginMessage() {
-		String message = ""; //attempt to get text from the alert message
+		String message = ""; 
 		try {
 			message = alertMessage.getText();
 		} catch (Exception e) {
