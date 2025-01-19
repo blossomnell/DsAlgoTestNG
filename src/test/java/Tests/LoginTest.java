@@ -8,7 +8,7 @@ import Utilities.TestDataProvider;
 
 public class LoginTest extends BaseTest {
 
-    @Test(priority = 1, description = "Test login with multiple data sets", dataProvider = "Logindata", dataProviderClass = TestDataProvider.class)
+    @Test(priority = 1, description = "Test login with multiple data sets", dataProvider = "LoginData", dataProviderClass = TestDataProvider.class)
     public void testLogin(String username, String password, String expectedMessage) {
         LoginPage loginPage = new LoginPage(getDriver()); 
 

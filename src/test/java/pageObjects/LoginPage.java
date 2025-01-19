@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 //import org.openqa.selenium.support.PageFactory;
 //import Utilities.ExcelReader;
 //import Utilities.configReader;
@@ -16,6 +17,11 @@ public class LoginPage {
 
     WebDriver driver;
     Properties prop;
+    
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
 //    ExcelReader excelReader;  // Add ExcelReader instance
 //
 //    public LoginPage() {
