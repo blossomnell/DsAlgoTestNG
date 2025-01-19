@@ -11,7 +11,9 @@ public class LoginTest extends BaseTest {
     @Test(priority = 1, description = "Test login with multiple data sets", dataProvider = "LoginData", dataProviderClass = TestDataProvider.class)
     public void testLogin(String username, String password, String expectedMessage) {
         LoginPage loginPage = new LoginPage(getDriver()); 
-
+        loginPage.navigatetohomepage();
+        loginPage.signin();
+        loginPage.navigatetologinpage();
         loginPage.enterUsername(username);
         loginPage.enterPassword(password);
         loginPage.clickloginBtn();
