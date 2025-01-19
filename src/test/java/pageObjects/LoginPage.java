@@ -3,6 +3,8 @@ package pageObjects;
 //import java.io.IOException;
 import java.util.Objects;
 import java.util.Properties;
+
+import Utilities.configReader;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,8 +20,11 @@ public class LoginPage {
     WebDriver driver;
     Properties prop;
     
-    public LoginPage(WebDriver driver) {
+    public LoginPage(WebDriver driver) 
+    {
         this.driver = driver;
+		configReader reader = new configReader();
+        prop = reader.init_prop();
         PageFactory.initElements(driver, this);
     }
 //    ExcelReader excelReader;  // Add ExcelReader instance

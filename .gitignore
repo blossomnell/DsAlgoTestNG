@@ -1,3 +1,24 @@
+<<<<<<< HEAD
+target/
+/test-output
+*.tmp
+/allure-results
+/target/classes/.cucumber
+.allure/
+.idea/
+/ExtentReports
+/apache-maven-3.9.9
+=======
 /target/
+/test-output/
+Extent Reports/
+ExtentReports/
+allure-reports/
 allure-results/
-test-output/
+>>>>>>> 366d9463f4993990df81620dc3f0913866037313
+/allure-reports
+src/test/resources/chromedriver.exe
+*.log
+*.java~
+/screenshots
+/screenshots

@@ -12,6 +12,7 @@ public class LoginTest extends BaseTest {
     public void testLogin(String username, String password, String expectedMessage) {
         LoginPage loginPage = new LoginPage(getDriver()); 
 
+        loginPage.navigatetologinpage();
         loginPage.enterUsername(username);
         loginPage.enterPassword(password);
         loginPage.clickloginBtn();
