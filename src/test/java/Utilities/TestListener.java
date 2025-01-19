@@ -13,7 +13,7 @@ import org.testng.ITestResult;
 
 import baseTest.BaseTest;
 
-public class Listener implements ITestListener {
+public class TestListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
