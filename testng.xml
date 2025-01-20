@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite  name="TestSuite" parallel="classes" thread-count="3">
+<suite  name="TestSuite" parallel="classes" thread-count="4">
     <listeners>
         <listener class-name="Utilities.TestListener" /> 
     </listeners>
@@ -10,6 +10,8 @@
         <classes>
             <class name="Tests.LoginTest" />
              <class name="Tests.DataStructureTest" />
+              <class name="Tests.QueueTest" />
+              <class name="Tests.StackTest" />
         </classes>
     </test>
 <!--    <test name="FirefoxTest">-->

@@ -65,11 +65,12 @@ public class TestDataProvider {
         return getExcelData("Login");
     }
 
-    @DataProvider(name = "ExcelData")
+    @DataProvider(name = "PythonData")
     public Object[][] getExcelDataForDataStructures() throws IOException {
         return getExcelData("python DS"); 
     }
-
+    
+   
     private Object[][] getExcelData(String sheetName) throws IOException {
         // Path to your Excel file
         String excelFilePath = "src/test/resources/Excel/TestData.xlsx";
