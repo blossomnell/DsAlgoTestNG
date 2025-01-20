@@ -9,6 +9,7 @@
         <parameter name="headless" value="false" />
         <classes>
             <class name="Tests.LoginTest" />
+             <class name="Tests.DataStructureTest" />
         </classes>
     </test>
 <!--    <test name="FirefoxTest">-->
@@ -25,5 +26,4 @@
 <!--            <class name="Tests.LoginTests" />-->
 <!--        </classes>-->
 <!--    </test>-->
-<!--</suite> -->
-</suite>
+</suite> 
