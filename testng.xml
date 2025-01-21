@@ -9,6 +9,8 @@
         <parameter name="headless" value="false" />
         <classes>
             <class name="Tests.LoginTest" />
+            <class name="Tests.RegisterTest" />
+            <class name="Tests.LinkedListTest" />
         </classes>
     </test>
 <!--    <test name="FirefoxTest">-->
@@ -16,6 +18,8 @@
 <!--        <parameter name="headless" value="false" />-->
 <!--        <classes>-->
 <!--            <class name="Tests.LoginTests" />-->
+<!--            <class name="Tests.RegisterTest" />-->
+<!--            <class name="Tests.LinkedListTest" /-->
 <!--        </classes>-->
 <!--    </test>-->
 <!--    <test name="EdgeTest">-->
@@ -23,7 +27,8 @@
 <!--        <parameter name="headless" value="false" />-->
 <!--        <classes>-->
 <!--            <class name="Tests.LoginTests" />-->
+<!--            <class name="Tests.RegisterTest" />-->
+<!--            <class name="Tests.LinkedListTest" />-->
 <!--        </classes>-->
 <!--    </test>-->
-<!--</suite> -->
-</suite>
+</suite> 
