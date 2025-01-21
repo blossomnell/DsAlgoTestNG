@@ -11,7 +11,7 @@ public class LinkedListTest extends BaseTest{
 	 
 	 @BeforeMethod
 	 public void setUp() {
-	     loginToApplication("Ninjasquad", "abss@123"); // Replace with valid credentials
+	     loginToApplication();
 	 }
 
 
