@@ -39,43 +39,42 @@ public class BaseTest {
     public static WebDriver getDriver() {
         return driver.get();
     }
+    
+    public void loginToApplication() {
+  	  try {
+  		  
+  		  configReader configReader = new configReader();
+  		  Properties Prop = configReader.init_prop();
+  	        String excelFilePath = Prop.getProperty("excelFilePath");
+  		 
+  		  
+//  	  String excelFilePath = "src/test/resources/loginData.xlsx";
+  	    ExcelReader excelReader = new ExcelReader(excelFilePath);
 
 
-	    
-	    public void loginToApplication() {
-	    	  try {
-	    		  
-	    		  configReader configReader = new configReader();
-	    		  Properties Prop = configReader.init_prop();
-	    	        String excelFilePath = Prop.getProperty("excelFilePath");
-	    		 
-	    		  
-//	    	  String excelFilePath = "src/test/resources/loginData.xlsx";
-	    	    ExcelReader excelReader = new ExcelReader(excelFilePath);
+  	    // Read credentials from the Excel sheet
+  	    String username = excelReader.getCellData("LoginValidData", 0, 1); // Row 0, Column 1
+  	    String password = excelReader.getCellData("LoginValidData", 1, 1); // Row 1, Column 1
 
-	    	    // Read credentials from the Excel sheet
-	    	    String username = excelReader.getCellData("LoginValidData", 0, 1); // Row 0, Column 1
-	    	    String password = excelReader.getCellData("LoginValidData", 1, 1); // Row 1, Column 1
+  	    // Perform login
+      LoginPage loginPage = new LoginPage(getDriver());
+      loginPage.navigatetohomepage();
+      loginPage.signin();
+      loginPage.navigatetologinpage();
+      loginPage.enterUsername(username);
+      loginPage.enterPassword(password);
+      loginPage.clickloginBtn();
+      if (!loginPage.isSignOutButtonDisplayed()) {
+          throw new RuntimeException("Login failed! Cannot proceed with the tests.");
+      }
+   // Close the workbook
+      excelReader.closeWorkbook();
 
-	    	    // Perform login
-	        LoginPage loginPage = new LoginPage(getDriver());
-	        loginPage.navigatetohomepage();
-	        loginPage.signin();
-	        loginPage.navigatetologinpage();
-	        loginPage.enterUsername(username);
-	        loginPage.enterPassword(password);
-	        loginPage.clickloginBtn();
-	        if (!loginPage.isSignOutButtonDisplayed()) {
-	            throw new RuntimeException("Login failed! Cannot proceed with the tests.");
-	        }
-	     // Close the workbook
-	        excelReader.closeWorkbook();
+  } catch (IOException e) {
+      e.printStackTrace();
+      throw new RuntimeException("Failed to read login data from Excel file: " + e.getMessage());
+  }
+  }
+}
 
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	        throw new RuntimeException("Failed to read login data from Excel file: " + e.getMessage());
-	    }
-	    }
-	}
-	 
 
