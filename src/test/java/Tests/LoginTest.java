@@ -35,4 +35,5 @@ public class LoginTest extends BaseTest {
             Assert.assertEquals(alertMsg, expectedMessage, "Error message mismatch for invalid login");
         }
     }
+
 }

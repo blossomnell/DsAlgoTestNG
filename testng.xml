@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<<<<<<< HEAD
 <suite  name="TestSuite" parallel="tests" thread-count="3">
+=======
+<suite  name="TestSuite" parallel="false" thread-count="3">
+>>>>>>> dad38db19ca0a0b7067ad42b315a5acec7150d0a
     <listeners>
         <listener class-name="Utilities.TestListener" /> 
-    </listeners>
+    </listeners>   
     <test name="ChromeTest">
         <parameter name="browser" value="chrome" />
         <parameter name="headless" value="false" />
         <classes>
             <class name="Tests.LoginTest" />
+<<<<<<< HEAD
              <class name="Tests.DataStructureTest" />
               <class name="Tests.QueueTest" />
               <class name="Tests.StackTest" />
@@ -39,3 +44,30 @@
         </classes>
     </test>
 </suite> 
+=======
+            <class name="Tests.RegisterTest" />
+            <class name="Tests.LinkedListTest" />
+        </classes>
+    </test>
+    
+<!--    <test name="FirefoxTest">-->
+<!--        <parameter name="browser" value="firefox" />-->
+<!--        <parameter name="headless" value="false" />-->
+<!--        <classes>-->
+<!--            <class name="Tests.LoginTest" />-->
+<!--            <class name="Tests.RegisterTest" />-->
+<!--            <class name="Tests.LinkedListTest" />-->
+<!--        </classes>-->
+<!--    </test>-->
+    
+<!--    <test name="EdgeTest">-->
+<!--        <parameter name="browser" value="edge" />-->
+<!--        <parameter name="headless" value="false" />-->
+<!--        <classes>-->
+<!--            <class name="Tests.LoginTest" />-->
+<!--            <class name="Tests.RegisterTest" />-->
+<!--            <class name="Tests.LinkedListTest" />-->
+<!--        </classes>-->
+<!--    </test>-->
+</suite>
+>>>>>>> dad38db19ca0a0b7067ad42b315a5acec7150d0a

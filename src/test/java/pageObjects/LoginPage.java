@@ -14,8 +14,8 @@ public class LoginPage {
     WebDriver driver;
     Properties prop;
     
-    public LoginPage(WebDriver driver) 
-    {
+    public LoginPage(WebDriver driver) {
+    
         this.driver = driver;
 		configReader reader = new configReader();
         prop = reader.init_prop();
