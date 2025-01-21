@@ -49,7 +49,7 @@ public class DriverManager {
     public static void quitDriver() {
         if (driver.get() != null) {
             driver.get().quit();
-            driver.remove(); // Clean up ThreadLocal instance
+            driver.remove();
         }
     }
 }

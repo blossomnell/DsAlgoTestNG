@@ -9,9 +9,10 @@ import Utilities.TestDataProvider;
 
 public class QueueTest extends BaseTest {
 
+
     @BeforeMethod
     public void setUp() {
-        loginToApplication("Ninjasquad", "abss@123");
+        loginToApplication();
     }
     
     @Test(priority = 3, description = "Verify navigation to Queue page")

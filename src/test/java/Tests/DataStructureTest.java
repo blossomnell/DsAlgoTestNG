@@ -11,9 +11,9 @@ public class DataStructureTest extends BaseTest {
 
     @BeforeMethod
     public void setUp() {
-        loginToApplication("Ninjasquad", "abss@123");
+        loginToApplication();
     }
-    
+	
     @Test(priority = 2, description = "Verify navigation to Data Structures-Introduction page")
     public void testNavigationToIntroductionPage() {
         DataStructurePage dataStructurePage = new DataStructurePage(getDriver());

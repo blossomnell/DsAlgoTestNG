@@ -10,9 +10,10 @@ import Utilities.TestDataProvider;
 
 public class StackTest extends BaseTest {
 
+
     @BeforeMethod
     public void setUp() {
-        loginToApplication("Ninjasquad", "abss@123");
+        loginToApplication();
     }
     
     @Test(priority = 4, description = "Verify navigation to Stack page")
