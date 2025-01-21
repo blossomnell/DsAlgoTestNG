@@ -10,37 +10,62 @@ import java.io.IOException;
 
 public class TestDataProvider {
 
-    @DataProvider(name = "LoginData")
-    public Object[][] getLoginData() throws IOException {
-        // Path to your Excel file
-        String excelFilePath = "src/test/resources/Excel/TestData.xlsx"; 
+	   @DataProvider(name = "LoginData")
+	    public Object[][] getLoginData() throws IOException {
+	        return getExcelData("Login");
+	    }
 
-        // Open the Excel file
-        FileInputStream file = new FileInputStream(excelFilePath);
+	    @DataProvider(name = "PythonData")
+	    public Object[][] getExcelDataForDataStructures() throws IOException {
+	        return getExcelData("python DS"); 
+	    }
+	    
+	   
+	    private Object[][] getExcelData(String sheetName) throws IOException {
+	        // Path to your Excel file
+	        String excelFilePath = "src/test/resources/Excel/TestData.xlsx";
 
-        // Load the workbook and sheet
-        XSSFWorkbook workbook = new XSSFWorkbook(file);
-        XSSFSheet sheet = workbook.getSheet("Login"); // Access the 'Login' sheet
+	        // Open the Excel file
+	        FileInputStream file = new FileInputStream(excelFilePath);
 
-        // Get the number of rows and columns
-        int rowCount = sheet.getPhysicalNumberOfRows();
-        int colCount = sheet.getRow(0).getLastCellNum();
+	        // Load the workbook and sheet
+	        XSSFWorkbook workbook = new XSSFWorkbook(file);
+	        XSSFSheet sheet = workbook.getSheet(sheetName); // Access the specified sheet
 
-        // Prepare the data array
-        Object[][] data = new Object[rowCount - 1][colCount]; // Exclude the header row
-        DataFormatter formatter = new DataFormatter(); // To handle different data formats
+	        // Get the number of rows and columns
+	        int rowCount = sheet.getPhysicalNumberOfRows();
+	        int colCount = sheet.getRow(0).getLastCellNum();
 
-        // Loop through rows and columns to populate the data array
-        for (int i = 1; i < rowCount; i++) { // Start from 1 to skip the header row
-            for (int j = 0; j < colCount; j++) {
-                data[i - 1][j] = formatter.formatCellValue(sheet.getRow(i).getCell(j));
-            }
-        }
+	        // Prepare the data array
+	        Object[][] data = new Object[rowCount - 1][colCount]; // Exclude the header row
+	        DataFormatter formatter = new DataFormatter(); // To handle different data formats
 
-        // Close workbook and file stream
-        workbook.close();
-        file.close();
+	        // Loop through rows and columns to populate the data array
+	        for (int i = 1; i < rowCount; i++) { // Start from 1 to skip the header row
+	            for (int j = 0; j < colCount; j++) {
+	                data[i - 1][j] = formatter.formatCellValue(sheet.getRow(i).getCell(j));
+	            }
+	        }
 
-        return data; // Return the data as a 2D array
+	        // Close workbook and file stream
+	        workbook.close();
+	        file.close();
+
+	        return data; // Return the data as a 2D array
+	    
+    }
+    
+    @DataProvider(name = "dropdownOptions")
+    public static Object[][] selectdropdownOptions() {
+    	return new Object[][]{
+    		{"Arrays","Array"},	        	
+        	{"Linked List","Linked List"},
+        	{"Stack","Stack"},
+        	{"Queue","Queue"},
+        	{"Tree","Tree"},
+        	{"Graph","Graph"}
+
+        	
+        };
     }
 }

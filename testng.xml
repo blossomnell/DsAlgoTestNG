@@ -7,8 +7,10 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome" />
         <parameter name="headless" value="false" />
-        <classes>
+        <classes>  
+            <class name="Tests.HomeTest" />
             <class name="Tests.LoginTest" />
+            <class name="Tests.TreeTest" />
         </classes>
     </test>
 <!--    <test name="FirefoxTest">-->
