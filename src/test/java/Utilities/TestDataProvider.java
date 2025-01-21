@@ -26,8 +26,8 @@ public class TestDataProvider {
 	    
 	    
 	    private Object[][] getExcelData(String sheetName) throws IOException {
-	        //String excelFilePath = "src/test/resources/Excel/TestData.xlsx";
-	        String excelFilePath = System.getProperty("user.dir") + "/src/test/resources/Excel/TestData.xlsx";
+	        String excelFilePath = "src/test/resources/Excel/TestData.xlsx";
+	        //String excelFilePath = System.getProperty("user.dir") + "/src/test/resources/Excel/TestData.xlsx";
 
 
 	        FileInputStream file = new FileInputStream(excelFilePath);
