@@ -70,11 +70,7 @@ public class HomePage {
 //		getstarted_DS.click();
 //	}
 	
-	public String getTitle() {
- 	   
- 	   return driver.getTitle();
-    }
-    
+
 	public void homePg() {
 		 dsalgopage();
 //		driver.get("https://dsportalapp.herokuapp.com/");
@@ -85,11 +81,7 @@ public class HomePage {
 		
 	return alertmsg.getText();
 	}
-//	
-//public boolean ismsgDisplayed() {
-//	return alertmsg.isDisplayed();
-//	}
-	
+
 
 	//dropdown options
 	public void dropdown(String dropdown_DS_option) {
@@ -171,20 +163,6 @@ public class HomePage {
 
 	public void click_login() {
 		login.click();
-	}
-	
-
-	public boolean isloginbuttonpresent() {
-		return login.isDisplayed();
-	}
-	public void navigatetohomepage() {
-//		driver.get("https://dsportalapp.herokuapp.com/home");
-		dsalgopage();
-		getStarted();
-		}
-
-	public boolean isRegistrationPagedisplayed() {
-		return register.isDisplayed();
 	}
 	
 	
