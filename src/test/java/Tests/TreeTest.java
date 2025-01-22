@@ -10,10 +10,10 @@ import pageObjects.TreePage;
 
 public class TreeTest extends  BaseTest {
 	
-	 @BeforeMethod
-	    public void setUp() {
-		 loginToApplication("Ninjasquad", "abss@123");
-	    }
+	@BeforeMethod
+	 public void setUp() {
+	     loginToApplication();
+	 }
 	    
 
 		@Test(priority = 6, description = "Verify navigation to Tree page")
