@@ -9,7 +9,8 @@
         <parameter name="headless" value="false" />
         <classes>  
             <class name="Tests.HomeTest" />
-             
+             <class name="Tests.LoginTest" />
+             <class name="Tests.TreeTest" />
         </classes>
     </test>
 <!--    <test name="FirefoxTest">-->
