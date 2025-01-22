@@ -16,7 +16,7 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(loginPage.isLoginPageDisplayed(), "Login Page is not displayed!");
 		
 	}
-	
+
     @Test(priority = 2, description = "Test login with multiple data sets", dataProvider = "LoginData", dataProviderClass = TestDataProvider.class)
     public void testLogin(String username, String password, String expectedMessage) {
         LoginPage loginPage = new LoginPage(getDriver()); 

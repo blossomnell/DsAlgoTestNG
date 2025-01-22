@@ -1,3 +1,7 @@
 /target/
 allure-results/
 test-output/
+/.allure
+*.log
+*.log
+/screenshots
