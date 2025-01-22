@@ -12,12 +12,11 @@ import pageObjects.GraphPage;
 
 public class ArrayTest extends BaseTest{
           
-	 @BeforeMethod
-	    public void setUp() {
-	        loginToApplication("Ninjasquad", "abss@123");
-	
+	@BeforeMethod
+	 public void setUp() {
+	     loginToApplication();
 	 }
-
+	
 	 @Test(priority = 1, description = "Navigation to Array page")
 	    public void testNavigationToArrayPage() {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
@@ -46,7 +45,7 @@ public class ArrayTest extends BaseTest{
 	        Assert.assertTrue(arrayPage.isTryEditorPageDisplayed(), "TryEditor Page is not displayed!");
 	    }
 	 
-	 @Test(priority = 4, description = "Verify pthon code execution with Excel data", dataProvider = "PythonData", dataProviderClass = TestDataProvider.class)
+	 @Test(priority = 4, description = "Verify pthon code execution with Excel data", dataProvider = "ArrayData", dataProviderClass = TestDataProvider.class)
 	    public void testCodeExecutionWithExcelData(String code, String expectedOutput) {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
 		 
@@ -90,7 +89,7 @@ public class ArrayTest extends BaseTest{
 	    }
 	 
 	 
-	 @Test(priority = 7, description = "Verify pthon code execution with Excel data", dataProvider = "PythonData", dataProviderClass = TestDataProvider.class)
+	 @Test(priority = 7, description = "Verify pthon code execution with Excel data", dataProvider = "ArrayData", dataProviderClass = TestDataProvider.class)
 	    public void testCodeExecutionWithExcelData1(String code, String expectedOutput) {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
 		 
@@ -132,7 +131,7 @@ public class ArrayTest extends BaseTest{
 	        Assert.assertTrue(arrayPage.isTryEditorPageDisplayed(), "TryEditor Page is not displayed!");
 	    }
 	 
-	 @Test(priority = 10, description = "Verify pthon code execution with Excel data", dataProvider = "PythonData", dataProviderClass = TestDataProvider.class)
+	 @Test(priority = 10, description = "Verify pthon code execution with Excel data", dataProvider = "ArrayData", dataProviderClass = TestDataProvider.class)
 	    public void testCodeExecutionWithExcelData2(String code, String expectedOutput) {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
 		 
@@ -176,7 +175,7 @@ public class ArrayTest extends BaseTest{
 	        Assert.assertTrue(arrayPage.isTryEditorPageDisplayed(), "TryEditor Page is not displayed!");
 	    }
 	 
-	 @Test(priority = 13, description = "Verify pthon code execution with Excel data", dataProvider = "PythonData", dataProviderClass = TestDataProvider.class)
+	 @Test(priority = 13, description = "Verify pthon code execution with Excel data", dataProvider = "ArrayData", dataProviderClass = TestDataProvider.class)
 	    public void testCodeExecutionWithExcelData3(String code, String expectedOutput) {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
 		 
@@ -228,7 +227,7 @@ public class ArrayTest extends BaseTest{
 	 //practice questions
 	 
 	 
-	 @Test(priority = 16, description = "Verify pthon code execution with Excel data", dataProvider = "PythonData", dataProviderClass = TestDataProvider.class)
+	 @Test(priority = 16, description = "Verify pthon code execution with Excel data", dataProvider = "ArrayData", dataProviderClass = TestDataProvider.class)
 	    public void testCodeExecutionWithExcelData4(String code, String expectedOutput) {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
 		 
@@ -239,7 +238,7 @@ public class ArrayTest extends BaseTest{
 		 arrayPage.Tryhere();
 		 
 
-		 arrayPage.enterPythonCodeForPractice(code, arrayPage.txt_code);
+		 arrayPage.enterPythonCode(code, expectedOutput);
 		 arrayPage.clicksrunBtn();
 
 	        if (expectedOutput.contains("SyntaxError")) {
@@ -268,7 +267,7 @@ public class ArrayTest extends BaseTest{
 	 
 	 //Practice questions
 	 
-	 @Test(priority = 18, description = "Verify pthon code execution with Excel data", dataProvider = "PythonData", dataProviderClass = TestDataProvider.class)
+	 @Test(priority = 18, description = "Verify pthon code execution with Excel data", dataProvider = "ArrayData", dataProviderClass = TestDataProvider.class)
 	    public void testCodeExecutionWithExcelData5(String code, String expectedOutput) {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
 		 
@@ -279,7 +278,7 @@ public class ArrayTest extends BaseTest{
 		 arrayPage.Tryhere();
 		 
 
-		 arrayPage.enterPythonCodeForPractice(code, arrayPage.txt_code);
+		 arrayPage.enterPythonCode(code, expectedOutput);
 		 arrayPage.clicksrunBtn();
 
 	        if (expectedOutput.contains("SyntaxError")) {
@@ -308,7 +307,7 @@ public class ArrayTest extends BaseTest{
 	 
 	 //Practice questions
 	 
-	 @Test(priority = 20, description = "Verify pthon code execution with Excel data", dataProvider = "PythonData", dataProviderClass = TestDataProvider.class)
+	 @Test(priority = 20, description = "Verify pthon code execution with Excel data", dataProvider = "ArrayData", dataProviderClass = TestDataProvider.class)
 	    public void testCodeExecutionWithExcelData6(String code, String expectedOutput) {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
 		 
@@ -319,7 +318,7 @@ public class ArrayTest extends BaseTest{
 		 arrayPage.Tryhere();
 		 
 
-		 arrayPage.enterPythonCodeForPractice(code, arrayPage.txt_code);
+		 arrayPage.enterPythonCode(code, expectedOutput);
 		 arrayPage.clicksrunBtn();
 
 	        if (expectedOutput.contains("SyntaxError")) {
@@ -357,7 +356,7 @@ public class ArrayTest extends BaseTest{
 		 arrayPage.Tryhere();
 		 
 
-		 arrayPage.enterPythonCodeForPractice(code, arrayPage.txt_code);
+		 arrayPage.enterPythonCode(code, expectedOutput);
 		 arrayPage.clicksrunBtn();
 
 	        if (expectedOutput.contains("SyntaxError")) {

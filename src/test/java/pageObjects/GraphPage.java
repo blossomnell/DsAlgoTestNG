@@ -54,31 +54,31 @@ public class GraphPage {
 	@FindBy(xpath = "//input[@type='submit'and @value='Login']")
 	WebElement login_btn;
 	@FindBy(xpath = "//a[@href='/login' and text()='Sign in']")
- WebElement signin_btn;
- @FindBy(xpath = "//a[@href='graph']")
- WebElement getstarted_btn;
- @FindBy( linkText="Graph")
-  WebElement maingraphlink;
- @FindBy(xpath = "//a[@class='btn btn-info']")                             
- WebElement tryhere_btn;
- @FindBy(xpath="//form[@id='answer_form']/div/div/div[6]")
- WebElement codeEditor_click;
+    WebElement signin_btn;
+    @FindBy(xpath = "//a[@href='graph']")
+    WebElement getstarted_btn;
+    @FindBy( linkText="Graph")
+    WebElement maingraphlink;
+   @FindBy(xpath = "//a[@class='btn btn-info']")                             
+   WebElement tryhere_btn;
+   @FindBy(xpath="//form[@id='answer_form']/div/div/div[6]")
+   WebElement codeEditor_click;
 	@FindBy(xpath="//form[@id='answer_form']/div/div/div/textarea")
 	WebElement codeEditor;
 	@FindBy(xpath="//form[@id='answer_form']/div/div/div/textarea")
 	WebElement txt_code;                                                       
- @FindBy(xpath = "//button[text()='Run']")
- WebElement run_btn;
- @FindBy(xpath = "//button[text()='Run']")
- WebElement run_btn2;
- @FindBy(xpath = "//pre[@id='output']")
- WebElement output_text;
- @FindBy(xpath = "//*[@id=\"content\"]/li[2]/a")
- WebElement graphRepresentations_btn;
- @FindBy(xpath = "//a[@class='list-group-item list-group-item-light text-info']")                                //failed
- WebElement practicequestions_btn;	
- @FindBy(xpath = "//a[@class='btn btn-info']")                             
- WebElement tryhere1_btn;
+   @FindBy(xpath = "//button[text()='Run']")
+   WebElement run_btn;
+   @FindBy(xpath = "//button[text()='Run']")
+   WebElement run_btn2;
+   @FindBy(xpath = "//pre[@id='output']")
+   WebElement output_text;
+   @FindBy(xpath = "//*[@id=\"content\"]/li[2]/a")
+   WebElement graphRepresentations_btn;
+   @FindBy(xpath = "//a[@class='list-group-item list-group-item-light text-info']")                                //failed
+   WebElement practicequestions_btn;	
+   @FindBy(xpath = "//a[@class='btn btn-info']")                             
+   WebElement tryhere1_btn;
  
  
 

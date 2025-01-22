@@ -25,6 +25,16 @@ public class TestDataProvider {
 	        return getExcelData("LinkedList"); 
 	    }
 	    
+	    @DataProvider(name = "PythonData")
+	    public Object[][] getExcelDataForGraph() throws IOException {
+	        return getExcelData("python DS"); 
+	    }
+	    
+	    @DataProvider(name = "ArrayData")
+	    public Object[][] getExcelDataForArray() throws IOException {
+	        return getExcelData("python PQ"); 
+	    }
+
 	    
 	    private Object[][] getExcelData(String sheetName) throws IOException {
 	        String excelFilePath = "src/test/resources/Excel/TestData.xlsx";

@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Utilities.ExcelReader;
 import Utilities.configReader;
@@ -259,10 +260,10 @@ public class ArrayPage {
 	}
 	
 	
-	public void enterPythonCode(String sheetName, Integer row) {
+	/*public void enterPythonCode(String code, Integer expectedOutput) {
 		int coloumn = 0;
 	    
-		String code = excelReader.getCellData(sheetName, row, coloumn);
+		String code = excelReader.getCellData(code, expectedOutput, coloumn);
 	    if(code == null || code.isEmpty()) {
 	    	throw  new IllegalArgumentException("The code fetched fromExcel is empty or null.");
 	    }
@@ -289,7 +290,42 @@ public class ArrayPage {
 	        element.sendKeys(Keys.ENTER);
 	      }
 	    }
-	  }
+	  }*/
+	
+	public void enterPythonCode(String code, String expectedOutput) {
+	    int coloumn = 0;
+
+	    // Convert expectedOutput to row index (if it's the row index in the sheet)
+	    int rowIndex = Integer.parseInt(expectedOutput);
+
+	    // Read code from Excel (ensure sheet name, row index, and column are correct)
+	    String codeFromExcel = excelReader.getCellData("ArrayData", rowIndex, coloumn);
+
+	    if (codeFromExcel == null || codeFromExcel.isEmpty()) {
+	        System.out.println("Code from Excel is empty or null. Row: " + rowIndex + ", Column: " + coloumn);
+	        throw new IllegalArgumentException("The code fetched from Excel is empty or null.");
+	    }
+
+	    // Enter the code into the text area
+	    enterPythonCodeForPractice(codeFromExcel, txt_code);
+	}
+	
+	
+
+	public void enterPythonCodeForPractice(String code, WebElement element) {
+	    new Actions(driver).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.DELETE).perform();
+	    String[] str1 = code.split("\n");
+
+	    for (int i = 0; i < str1.length; i++) {
+	        if (str1[i].equalsIgnoreCase("\\b")) {
+	            element.sendKeys(Keys.BACK_SPACE);
+	        } else {
+	            element.sendKeys(str1[i]);
+	            element.sendKeys(Keys.ENTER);
+	        }
+	    }
+	}
+	
 	
 	public void clickssubmitBtn() {
 		submit_btn.click();
@@ -322,19 +358,16 @@ public class ArrayPage {
 			return true;
 	}
 	
-	//public String getExcelData(String sheetName, Integer row, int column) {
-		//return excelReader.getCellData(sheetName, row, column);
-	//}
+	public String getExcelData(String sheetName, Integer row, int column) {
+		return excelReader.getCellData(sheetName, row, column);
+	}
 
 	public void enterCode(String code) {
 		// TODO Auto-generated method stub
 		txt_code.sendKeys(code);
 	}
 
-	
-	
-      
-	
+		
 	
 	
 }

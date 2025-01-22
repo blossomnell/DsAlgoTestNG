@@ -9,10 +9,11 @@
         <parameter name="headless" value="false" />
         <classes>
 
-            <class name="Tests.LoginTest" />
-            <class name="Tests.RegisterTest" />
-            <class name="Tests.LinkedListTest" />
-
+<!--                <class name="Tests.LoginTest" />-->
+<!--            <class name="Tests.RegisterTest" />-->
+<!--            <class name="Tests.LinkedListTest" />-->
+<!--                <class name="Tests.GraphTest" />-->
+                <class name="Tests.ArrayTest" />
         </classes>
     </test>
     

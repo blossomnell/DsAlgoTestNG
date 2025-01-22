@@ -9,11 +9,10 @@ import pageObjects.GraphPage;
 
 public class GraphTest extends BaseTest{
           
-	 @BeforeMethod
+	@BeforeMethod
 	 public void setUp() {
-	     loginToApplication("Ninjasquad", "abss@123"); // Replace with valid credentials
+	     loginToApplication();
 	 }
-	 
 	
 	 @Test(priority = 1, description = "Navigation to Graph page")
 	    public void testNavigationToGraphPage() {
@@ -54,7 +53,7 @@ public class GraphTest extends BaseTest{
 		 graphPage.enterCode(code);
 		 graphPage.clicksrunBtn();
 
-	        if (expectedOutput.contains("SyntaxError")) {
+	        if (expectedOutput.contains("popup error message")) {
 	            String popupMessage = graphPage.getPopupAlertText();
 	            Assert.assertTrue(popupMessage.contains("SyntaxError"),
 	                "Popup message did not match expected. Actual: " + popupMessage);
@@ -95,7 +94,7 @@ public class GraphTest extends BaseTest{
 		 graphPage.enterCode(code);
 		 graphPage.clicksrunBtn();
 
-	        if (expectedOutput.contains("SyntaxError")) {
+	        if (expectedOutput.contains("popup error message")) {
 	            String popupMessage = graphPage.getPopupAlertText();
 	            Assert.assertTrue(popupMessage.contains("SyntaxError"),
 	                "Popup message did not match expected. Actual: " + popupMessage);
