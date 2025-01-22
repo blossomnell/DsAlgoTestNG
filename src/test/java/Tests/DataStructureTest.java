@@ -14,7 +14,7 @@ public class DataStructureTest extends BaseTest {
         loginToApplication();
     }
 	
-    @Test(priority = 2, description = "Verify navigation to Data Structures-Introduction page")
+    @Test(priority = 1, description = "Verify navigation to Data Structures-Introduction page")
     public void testNavigationToIntroductionPage() {
         DataStructurePage dataStructurePage = new DataStructurePage(getDriver());
         dataStructurePage.navigateToDataStructuresPage();
@@ -29,7 +29,7 @@ public class DataStructureTest extends BaseTest {
         Assert.assertTrue(dataStructurePage.isTimeComplexityPageDisplayed(), "Time Complexity Page is not displayed!");
     }
 
-    @Test(priority = 2, description = "Verify navigation to Try Editor page")
+    @Test(priority = 3, description = "Verify navigation to Try Editor page")
     public void testNavigationToTryEditorPage() {
         DataStructurePage dataStructurePage = new DataStructurePage(getDriver());
         dataStructurePage.navigateToDataStructuresPage();
@@ -38,7 +38,7 @@ public class DataStructureTest extends BaseTest {
         Assert.assertTrue(dataStructurePage.isTryEditorPageDisplayed(), "Try Editor Page is not displayed!");
     }
 
-    @Test(priority = 2, description = "Verify code execution with Excel data", dataProvider = "PythonData", dataProviderClass = TestDataProvider.class)
+    @Test(priority = 4, description = "Verify code execution with Excel data", dataProvider = "PythonData", dataProviderClass = TestDataProvider.class)
     public void testCodeExecutionWithExcelData(String code, String expectedOutput) {
         DataStructurePage dataStructurePage = new DataStructurePage(getDriver());
         dataStructurePage.navigateToDataStructuresPage();
@@ -59,7 +59,7 @@ public class DataStructureTest extends BaseTest {
         }
     }
 
-    @Test(priority = 2, description = "Verify navigation to Practice Questions page")
+    @Test(priority = 5, description = "Verify navigation to Practice Questions page")
     public void testNavigationToPracticeQuestionsPage() {
         DataStructurePage dataStructurePage = new DataStructurePage(getDriver());
         dataStructurePage.navigateToDataStructuresPage();

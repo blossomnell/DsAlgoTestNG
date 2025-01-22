@@ -16,7 +16,7 @@ public class StackTest extends BaseTest {
         loginToApplication();
     }
     
-    @Test(priority = 4, description = "Verify navigation to Stack page")
+    @Test(priority = 1, description = "Verify navigation to Stack page")
     public void testNavigationToStackPage() {
         StackPage stackPage = new StackPage(getDriver());
         stackPage.clickGetStarted();
@@ -24,7 +24,7 @@ public class StackTest extends BaseTest {
         Assert.assertTrue(stackPage.isStackPageDisplayed(), "Stack Page is not displayed!");
     }
     
-    @Test(priority = 4, description = "Verify navigation to Implementation of Queue page")
+    @Test(priority = 2, description = "Verify navigation to Implementation of Queue page")
     public void testNavigationToImplementationofQueuePage() {
     	 StackPage stackPage = new StackPage(getDriver());
     	 stackPage.clickGetStarted();
@@ -34,7 +34,7 @@ public class StackTest extends BaseTest {
         Assert.assertTrue(stackPage.isOperationsInStackPageDisplayed(), "Implementation of queue Page is not displayed!");
     }
     
-    @Test(priority = 4, description = "Verify navigation to Try Editor page")
+    @Test(priority = 3, description = "Verify navigation to Try Editor page")
     public void testNavigationToTryEditorPage() {
     	 StackPage stackPage = new StackPage(getDriver());
     	 stackPage.clickGetStarted();
@@ -64,7 +64,7 @@ public class StackTest extends BaseTest {
             Assert.assertEquals(actualOutput.trim(), expectedOutput.trim(), "Output mismatch!");
         }
     }
-    @Test(priority = 4, description = "Implementation")
+    @Test(priority = 5, description = "Implementation")
     public void testNavigationToImplementation() {
     	 StackPage stackPage = new StackPage(getDriver());
     	 stackPage.clickGetStarted();
@@ -73,7 +73,7 @@ public class StackTest extends BaseTest {
         Assert.assertTrue(stackPage.isImplementationPageDisplayed(), "Is Implementation Page not displayed!");
     }
 
-    @Test(priority = 4, description = "Verify navigation to Try Editor page")
+    @Test(priority = 6, description = "Verify navigation to Try Editor page")
     public void testNavigationToTryEditorPage1() {
     	 StackPage stackPage = new StackPage(getDriver());
     	 stackPage.clickGetStarted();
@@ -82,7 +82,7 @@ public class StackTest extends BaseTest {
     	 stackPage.scrollDownAndClickTryHere();
         Assert.assertTrue(stackPage.isTryEditorPageDisplayed(), "Try Editor Page is not displayed!");
     }
-    @Test(priority = 4, description = "Verify code execution with Excel data", dataProvider = "PythonData", dataProviderClass = TestDataProvider.class)
+    @Test(priority = 7, description = "Verify code execution with Excel data", dataProvider = "PythonData", dataProviderClass = TestDataProvider.class)
     public void testCodeExecutionWithExcelData1(String code, String expectedOutput) {
     	 StackPage stackPage = new StackPage(getDriver());
     	 stackPage.clickGetStarted();
@@ -103,7 +103,7 @@ public class StackTest extends BaseTest {
             Assert.assertEquals(actualOutput.trim(), expectedOutput.trim(), "Output mismatch!");
         }
     }
-    @Test(priority = 4, description = "Applications")
+    @Test(priority = 8, description = "Applications")
     public void testNavigationToApplications() {
     	 StackPage stackPage = new StackPage(getDriver());
     	 stackPage.clickGetStarted();
@@ -112,7 +112,7 @@ public class StackTest extends BaseTest {
         Assert.assertTrue(stackPage.isApplicationPageDisplayed(), "Is Application Page not displayed!");
     }
 
-    @Test(priority = 4, description = "Verify navigation to Try Editor page")
+    @Test(priority = 9, description = "Verify navigation to Try Editor page")
     public void testNavigationToTryEditorPage2() {
     	 StackPage stackPage = new StackPage(getDriver());
     	 stackPage.clickGetStarted();
@@ -121,7 +121,7 @@ public class StackTest extends BaseTest {
     	 stackPage.scrollDownAndClickTryHere();
         Assert.assertTrue(stackPage.isTryEditorPageDisplayed(), "Try Editor Page is not displayed!");
     }
-    @Test(priority = 4, description = "Verify code execution with Excel data", dataProvider = "PythonData", dataProviderClass = TestDataProvider.class)
+    @Test(priority = 10, description = "Verify code execution with Excel data", dataProvider = "PythonData", dataProviderClass = TestDataProvider.class)
     public void testCodeExecutionWithExcelData2(String code, String expectedOutput) {
     	 StackPage stackPage = new StackPage(getDriver());
     	 stackPage.clickGetStarted();
@@ -142,7 +142,7 @@ public class StackTest extends BaseTest {
             Assert.assertEquals(actualOutput.trim(), expectedOutput.trim(), "Output mismatch!");
         }
     }
-    @Test(priority = 4, description = "Verify navigation to Practice Questions page")
+    @Test(priority = 11, description = "Verify navigation to Practice Questions page")
     public void testNavigationToPracticeQuestionsPage() {
     	 StackPage stackPage = new StackPage(getDriver());
     	 stackPage.clickGetStarted();
