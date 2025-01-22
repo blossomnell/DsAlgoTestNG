@@ -8,6 +8,15 @@ import Utilities.TestDataProvider;
 
 public class LoginTest extends BaseTest {
 
+
+	@Test(priority = 1, description = "Navigates to sign in page")
+	public void testsignin() {
+		LoginPage loginPage = new LoginPage(getDriver());
+		loginPage.navigatetohomepage();
+        loginPage.signin();
+        Assert.assertTrue(loginPage.isLoginPageDisplayed(), "Login Page is not displayed!");	
+	}
+	
     @Test(priority = 2, description = "Test login with multiple data sets", dataProvider = "LoginData", dataProviderClass = TestDataProvider.class)
     public void testLogin(String username, String password, String expectedMessage) {
         LoginPage loginPage = new LoginPage(getDriver()); 
@@ -26,4 +35,5 @@ public class LoginTest extends BaseTest {
             Assert.assertEquals(alertMsg, expectedMessage, "Error message mismatch for invalid login");
         }
     }
+
 }
