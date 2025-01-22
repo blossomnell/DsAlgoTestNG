@@ -61,7 +61,6 @@ import java.io.IOException;
 public class TestDataProvider {
 	 
 
-
     @DataProvider(name = "LoginData")
     public Object[][] getLoginData() throws IOException {
         return getExcelData("Login");
@@ -112,7 +111,20 @@ public class TestDataProvider {
 
 	        return data; // Return the data as a 2D array
 	    }
+	    
+	    @DataProvider(name = "dropdownOptions")
+	    public static Object[][] selectdropdownOptions() {
+	    	return new Object[][]{
+	    		{"Arrays","Array"},	        	
+	        	{"Linked List","Linked List"},
+	        	{"Stack","Stack"},
+	        	{"Queue","Queue"},
+	        	{"Tree","Tree"},
+	        	{"Graph","Graph"}
+
+	        	
+	        };
 	}
 		
-
+}
 
