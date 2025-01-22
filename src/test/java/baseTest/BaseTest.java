@@ -6,6 +6,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Parameters;
 import driverManager.DriverManager;
+import pageObjects.LoginPage;
 	
 	public class BaseTest {    
 		protected static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
@@ -37,6 +38,22 @@ import driverManager.DriverManager;
 	    public static WebDriver getDriver() {
 	        return driver.get();
 	    }
+	   
+	    public void loginToApplication(String username, String password) {
+	        LoginPage loginPage = new LoginPage(getDriver());
+	        loginPage.navigatetohomepage();
+	        loginPage.signin();
+	        loginPage.navigatetologinpage();
+	        loginPage.enterUsername(username);
+	        loginPage.enterPassword(password);
+	        loginPage.clickloginBtn();
+	        if (!loginPage.isSignOutButtonDisplayed()) {
+	            throw new RuntimeException("Login failed! Cannot proceed with the tests.");
+	        }
+	    
+	    
+	    
+	    } 
 	    
 	}
 

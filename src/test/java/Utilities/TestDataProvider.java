@@ -10,17 +10,38 @@ import java.io.IOException;
 
 public class TestDataProvider {
 
-    @DataProvider(name = "LoginData")
-    public Object[][] getLoginData() throws IOException {
-        // Path to your Excel file
-        String excelFilePath = "src/test/resources/Excel/TestData.xlsx"; 
+	@DataProvider(name = "LoginData")
+    public Object[][] getExcelDataForLogin() throws IOException {
+        return getExcelData("Login");
+    }
+        
+	//@DataProvider(name = "GraphData")
+    //public Object[][] getExcelDataForGraph() throws IOException {
+       // return getExcelData("python DS"); 
+    //}
+	 @DataProvider(name = "PythonData")
+	    public Object[][] getExcelDataForDataStructures() throws IOException {
+	        return getExcelData("python DS"); 
+	    }
+	
+	@DataProvider(name = "ArrayData")
+    public Object[][] getExcelDataForArray() throws IOException {
+        return getExcelData("python PQ"); 
+    }
+        
+        private Object[][] getExcelData(String sheetName) throws IOException {
+	        String excelFilePath = "src/test/resources/Excel/TestData.xlsx";
+	        //String excelFilePath = System.getProperty("user.dir") + "/src/test/resources/Excel/TestData.xlsx";
 
+        
+        
+        
         // Open the Excel file
         FileInputStream file = new FileInputStream(excelFilePath);
 
         // Load the workbook and sheet
         XSSFWorkbook workbook = new XSSFWorkbook(file);
-        XSSFSheet sheet = workbook.getSheet("Login"); // Access the 'Login' sheet
+        XSSFSheet sheet = workbook.getSheet("python DS"); // Access the 'Login' sheet
 
         // Get the number of rows and columns
         int rowCount = sheet.getPhysicalNumberOfRows();
