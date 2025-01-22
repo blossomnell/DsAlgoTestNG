@@ -1,139 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>DsAlgoTestNG</groupId>
-  <artifactId>DsAlgoTestNG</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+    <groupId>DsAlgoTestNG</groupId>
+    <artifactId>DsAlgoTestNG</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
-  <properties>
-		<maven.compiler.source>17</maven.compiler.source>
-		<maven.compiler.target>17</maven.compiler.target>
-	</properties>
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
 
-	<dependencies>
-	 
-		<!--https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter -->
-		<dependency>
-			<groupId>tech.grasshopper</groupId>
-			<artifactId>extentreports-cucumber7-adapter</artifactId>
-			<version>1.14.0</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
-<dependency>
-    <groupId>io.qameta.allure</groupId>
-    <artifactId>allure-testng</artifactId>
-    <version>2.29.1</version>
-</dependency>
+    <dependencies>
+        <!-- Extent Reports -->
+        <dependency>
+            <groupId>tech.grasshopper</groupId>
+            <artifactId>extentreports-cucumber7-adapter</artifactId>
+            <version>1.14.0</version>
+        </dependency>
 
-<!-- Selenium -->
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>4.26.0</version>
-		</dependency>
-		
-		<dependency>
-    <groupId>org.apache.poi</groupId>
-    <artifactId>poi</artifactId>
-    <version>5.2.3</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.poi</groupId>
-    <artifactId>poi-ooxml</artifactId>
-    <version>5.2.3</version>
-</dependency>
+        <!-- Allure -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.29.1</version>
+        </dependency>
 
+        <!-- Selenium -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.26.0</version>
+        </dependency>
 
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-core</artifactId>
-			<version>7.20.1</version>
-		</dependency>
+        <!-- Apache POI -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.2.3</version>
+        </dependency>
 
-		<!-- ChromeDriver -->
-		<dependency>
-			<groupId>io.github.bonigarcia</groupId>
-			<artifactId>webdrivermanager</artifactId>
-			<version>5.9.2</version>
-		</dependency>
+        <!-- WebDriver Manager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.9.2</version>
+        </dependency>
 
-		<!-- Cucumber -->
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-java</artifactId>
-			<version>7.20.1</version>
-		</dependency>
+        <!-- TestNG -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.10.2</version>
+            <scope>test</scope>
+        </dependency>
 
-		<dependency>
-			<groupId>io.qameta.allure</groupId>
-			<artifactId>allure-cucumber7-jvm</artifactId>
-			<version>2.29.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>7.10.2</version>
-			<scope>test</scope>
-		</dependency>
-
-       <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
-       <dependency>
+        <!-- Log4j -->
+        <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>3.0.0-beta3</version>
-      </dependency>
-  
-      <dependency>
+            <version>2.20.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
             <version>2.20.0</version>
-      </dependency>
+        </dependency>
 
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-testng</artifactId>
-			<version>7.20.1</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.example</groupId>
-			<artifactId>cucumber-selenium-project</artifactId>
-			<version>1.0-SNAPSHOT</version>
-		</dependency>
-	</dependencies>
-<build>
-		<plugins>
-			<!-- Plugin for Cucumber -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M5</version>
+        <!-- Cucumber -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>7.20.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>7.20.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
-	   <configuration>
-			<parallel>methods</parallel>
-			<threadCount>4</threadCount>
-			<suiteXmlFiles>
-			<suiteXmlFile>testng.xml</suiteXmlFile>
-			</suiteXmlFiles>
-	    </configuration>
+    <build>
+        <plugins>
+            <!-- Surefire Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <parallel>methods</parallel>
+                    <threadCount>4</threadCount>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
 
-			</plugin>
-			<plugin>
-				<groupId>io.qameta.allure</groupId>
-				<artifactId>allure-maven</artifactId>
-				<version>2.11.2</version>
-				<executions>
-					<execution>
-						<phase>post-integration-test</phase>
-						<goals>
-							<goal>serve</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+            <!-- Allure Plugin -->
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.11.2</version>
+                <executions>
+                    <execution>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>serve</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
