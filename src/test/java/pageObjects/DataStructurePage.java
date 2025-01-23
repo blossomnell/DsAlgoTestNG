@@ -3,6 +3,8 @@ package pageObjects;
 import java.time.Duration;
 import java.util.Objects;
 import java.util.Properties;
+
+import Utilities.LoggerLoad;
 import Utilities.configReader;
 
 import org.openqa.selenium.Alert;
@@ -25,6 +27,7 @@ public class DataStructurePage {
         configReader reader = new configReader();
         prop = reader.init_prop();
         PageFactory.initElements(driver, this);
+        LoggerLoad.info("DataStructurePage initialized.");
     }
 
     // Locators for elements on the Data Structure page
@@ -65,84 +68,84 @@ public class DataStructurePage {
 
     // Navigate to the Data Structures page
     public void navigateToDataStructuresPage() {
+        LoggerLoad.info("Navigating to Data Structures-Introduction page...");
         driver.get(prop.getProperty("testurl") + "/data-structures-introduction");
     }
-
-    // Click the Get Started button
     public void clickGetStarted() {
+        LoggerLoad.info("Clicking the Get Started button...");
         getStartedButton.click();
     }
 
-    // Check if the Introduction Page is displayed
     public boolean isIntroductionPageDisplayed() {
+        LoggerLoad.info("Verifying if the Introduction Page is displayed...");
         return pageTitle.isDisplayed() && pageTitle.getText().contains("Data Structures");
     }
 
-    // Click the Time Complexity link
     public void clickTimeComplexityLink() {
+        LoggerLoad.info("Clicking the Time Complexity link...");
         timeComplexityLink.click();
     }
 
-    // Check if the Time Complexity page is displayed
     public boolean isTimeComplexityPageDisplayed() {
+        LoggerLoad.info("Verifying if the Time Complexity Page is displayed...");
         return timeComplexityHeading.isDisplayed();
     }
 
-    // Click the Try Here button
     public void clickTryHereButton() {
+        LoggerLoad.info("Clicking the Try Here button...");
         tryHereButton.click();
     }
-    public boolean isTryEditorPageDisplayed() {
 
-		return tryEditorPage.isDisplayed();
-	}
+    public boolean isTryEditorPageDisplayed() {
+        LoggerLoad.info("Verifying if the Try Editor Page is displayed...");
+        return tryEditorPage.isDisplayed();
+    }
 
     public void enterCode(String code) {
-
-		codeEditor_click.click();
-
-		// codeEditorTextarea.clear();
-		codeEditor.sendKeys(code);
-	}
+        LoggerLoad.info("Entering code into the editor: " + code);
+        codeEditor_click.click();
+        codeEditor.sendKeys(code);
+    }
 
     public void clickRunButton() {
-		try {
-			runButton.click();
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-			wait.until(ExpectedConditions.alertIsPresent()); // Wait for the alert
-		} catch (Exception e) {
-			System.out.println("No alert present.");
-		}
-	}
-    
+        LoggerLoad.info("Clicking the Run button...");
+        try {
+            runButton.click();
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+            wait.until(ExpectedConditions.alertIsPresent());
+            LoggerLoad.info("Run button clicked and alert handled.");
+        } catch (Exception e) {
+            LoggerLoad.warn("No alert present after clicking Run button.");
+        }
+    }
 
-    // Get output text from the console
     public String getOutputText() {
+        LoggerLoad.info("Fetching output text from the console...");
         return outputConsole.getText();
     }
 
-    // Click the Practice Questions link
     public void clickPracticeQuestionsLink() {
+        LoggerLoad.info("Clicking the Practice Questions link...");
         practiceQuestionsLink.click();
     }
 
-    
     public String handlePopupError() {
-		try {
-			Alert alert = driver.switchTo().alert();
-			String alertText = alert.getText(); // Get the alert text
-			System.out.println("Alert text: " + alertText);
-			alert.accept(); // Accept the alert
-			return alertText;
-		} catch (NoAlertPresentException e) {
-			return "";
-		}
-	}
+        LoggerLoad.info("Handling popup error...");
+        try {
+            Alert alert = driver.switchTo().alert();
+            String alertText = alert.getText();
+            LoggerLoad.info("Alert text: " + alertText);
+            alert.accept();
+            return alertText;
+        } catch (NoAlertPresentException e) {
+            LoggerLoad.warn("No alert present.");
+            return "";
+        }
+    }
 
-    
     public boolean isPracticeQuestionsPageDisplayed() {
+        LoggerLoad.info("Verifying if the Practice Questions Page is displayed...");
         return Objects.requireNonNull(driver.getCurrentUrl()).contains("practice")
                 || practiceQuestionsLink.isDisplayed();
     }
 }
-
