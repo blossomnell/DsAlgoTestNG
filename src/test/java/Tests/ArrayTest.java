@@ -20,35 +20,35 @@ public class ArrayTest extends BaseTest{
 	 @Test(priority = 1, description = "Navigation to Array page")
 	    public void testNavigationToArrayPage() {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
-	        
+
 		 arrayPage.clickgetstartedBtn();
 	        Assert.assertTrue(arrayPage.ArraypageDisplayed(), "Array Page is not displayed!");
 	    }
-	 
+
 	 @Test(priority = 2, description = "Navigation to ArraysInPython page")
 	    public void testArraysInPythonPage() {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
-	        
+
 		 arrayPage.clickgetstartedBtn();
 		 arrayPage.ArraysInPythonButton();
 	        Assert.assertTrue(arrayPage.isArraysInPythonButtonisDisplayed(), "ArraysInPython Page is not displayed!");
 	    }
-	 
+
 	 @Test(priority = 3, description = "Navigation to Tryeditor page")
 	    public void testTryEditorPage() {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
-	        
+
 		 arrayPage.clickgetstartedBtn();
 		 arrayPage.ArraysInPythonButton();
 		 arrayPage.Tryhere();
 	        //arrayPage.isTryEditorPageDisplayed();
 	        Assert.assertTrue(arrayPage.isTryEditorPageDisplayed(), "TryEditor Page is not displayed!");
 	    }
-	 
+
 	 @Test(priority = 4, description = "Verify pthon code execution with Excel data", dataProvider = "ArrayData", dataProviderClass = TestDataProvider.class)
 	    public void testCodeExecutionWithExcelData(String code, String expectedOutput) {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
-		 
+
 		 arrayPage.clickgetstartedBtn();
 		 arrayPage.ArraysInPythonButton();
 		 arrayPage.Tryhere();
@@ -65,8 +65,8 @@ public class ArrayTest extends BaseTest{
 	            Assert.assertEquals(actualOutput.trim(), expectedOutput.trim(), "Output mismatch!");
 	        }
 	    }
-	 
-	 
+
+
 	 @Test(priority = 5, description = "Navigation to Arrays Using List page")
 	    public void testArraysUsingListPage() {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
@@ -75,11 +75,11 @@ public class ArrayTest extends BaseTest{
 		 arrayPage.ArrayUsingList();
 	        Assert.assertTrue(arrayPage.isArraysUsingListButtonisDisplayed(), "ArrayUsingList Page is not displayed!");
 	    }
-	 
+
 	 @Test(priority = 6, description = "Navigation to Tryeditor page")
 	    public void testTryEditorPage1() {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
-	        
+
 		 arrayPage.clickgetstartedBtn();
 		 arrayPage.ArraysInPythonButton();
 		 arrayPage.ArrayUsingList();
@@ -87,14 +87,14 @@ public class ArrayTest extends BaseTest{
 	        //arrayPage.isTryEditorPageDisplayed();
 	        Assert.assertTrue(arrayPage.isTryEditorPageDisplayed(), "TryEditor Page is not displayed!");
 	    }
-	 
-	 
+
+
 	 @Test(priority = 7, description = "Verify pthon code execution with Excel data", dataProvider = "ArrayData", dataProviderClass = TestDataProvider.class)
 	    public void testCodeExecutionWithExcelData1(String code, String expectedOutput) {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
-		 
+
 		 arrayPage.clickgetstartedBtn();
-		 arrayPage.ArraysInPythonButton();
+		 arrayPage.ArraysUsingListButton();
 		 arrayPage.Tryhere();
 
 		 arrayPage.enterCode(code);
@@ -109,7 +109,7 @@ public class ArrayTest extends BaseTest{
 	            Assert.assertEquals(actualOutput.trim(), expectedOutput.trim(), "Output mismatch!");
 	        }
 	    }
-	 
+
 	 @Test(priority = 8, description = "Navigation to Basic Operations In List page")
 	    public void testBasicOperationsInListPage() {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
@@ -118,11 +118,11 @@ public class ArrayTest extends BaseTest{
 		 arrayPage.BasicOperationsInList();
 	        Assert.assertTrue(arrayPage.isBasicOperationsInListsButtonisDisplayed(), "BasicOperationsInList Page is not displayed!");
 	    }
-	 
+
 	 @Test(priority = 9, description = "Navigation to Tryeditor page")
 	    public void testTryEditorPage2() {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
-	        
+
 		 arrayPage.clickgetstartedBtn();
 		 arrayPage.ArraysInPythonButton();
 		 arrayPage.BasicOperationsInList();
@@ -130,11 +130,11 @@ public class ArrayTest extends BaseTest{
 	        //arrayPage.isTryEditorPageDisplayed();
 	        Assert.assertTrue(arrayPage.isTryEditorPageDisplayed(), "TryEditor Page is not displayed!");
 	    }
-	 
+
 	 @Test(priority = 10, description = "Verify pthon code execution with Excel data", dataProvider = "ArrayData", dataProviderClass = TestDataProvider.class)
 	    public void testCodeExecutionWithExcelData2(String code, String expectedOutput) {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
-		 
+
 		 arrayPage.clickgetstartedBtn();
 		 arrayPage.ArraysInPythonButton();
 		 arrayPage.BasicOperationsInList();
@@ -162,11 +162,11 @@ public class ArrayTest extends BaseTest{
 		 arrayPage.ApplicationOfArray();
 	        Assert.assertTrue(arrayPage.isApplicationOfArrayButtonisDisplayed(), "ApplicationOfArray Page is not displayed!");
 	    }
-	 
+
 	 @Test(priority = 12, description = "Navigation to Tryeditor page")
 	    public void testTryEditorPage3() {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
-	        
+
 		 arrayPage.clickgetstartedBtn();
 		 arrayPage.ArraysInPythonButton();
 		 arrayPage.ApplicationOfArray();
@@ -174,11 +174,11 @@ public class ArrayTest extends BaseTest{
 	        //arrayPage.isTryEditorPageDisplayed();
 	        Assert.assertTrue(arrayPage.isTryEditorPageDisplayed(), "TryEditor Page is not displayed!");
 	    }
-	 
+
 	 @Test(priority = 13, description = "Verify pthon code execution with Excel data", dataProvider = "ArrayData", dataProviderClass = TestDataProvider.class)
 	    public void testCodeExecutionWithExcelData3(String code, String expectedOutput) {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
-		 
+
 		 arrayPage.clickgetstartedBtn();
 		 arrayPage.ArraysInPythonButton();
 		 arrayPage.ApplicationOfArray();
@@ -205,8 +205,8 @@ public class ArrayTest extends BaseTest{
 		 arrayPage.PracticeQuestions();
 	       // arrayPage.isPracticeQuestionsPageDisplayed();
 	        Assert.assertTrue(arrayPage.isPracticeQuestionsPageisDisplayed(), "PracticeQuestions Page is not displayed!");
-	     
-     
+
+
        }
 
 	 
@@ -225,20 +225,22 @@ public class ArrayTest extends BaseTest{
     }
     
 	 //practice questions
-	 
-	 
-	 @Test(priority = 16, description = "Verify pthon code execution with Excel data", dataProvider = "ArrayData", dataProviderClass = TestDataProvider.class)
+
+
+	 @Test(priority = 16, description = "Verify pthon code execution with Excel data", dataProvider = "ArrayData-SearchArray", dataProviderClass = TestDataProvider.class)
 	    public void testCodeExecutionWithExcelData4(String code, String expectedOutput) {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
-		 
+
 		 arrayPage.clickgetstartedBtn();
 		 arrayPage.ArraysInPythonButton();
 		 arrayPage.PracticeQuestions();
 		 arrayPage.SearchTheArray();
-		 arrayPage.Tryhere();
-		 
+		 //arrayPage.Tryhere();
 
-		 arrayPage.enterPythonCode(code, expectedOutput);
+
+		 //arrayPage.enterPythonCode(code, expectedOutput);
+		 arrayPage.enterCode(code);
+
 		 arrayPage.clicksrunBtn();
 
 	        if (expectedOutput.contains("SyntaxError")) {
@@ -250,7 +252,7 @@ public class ArrayTest extends BaseTest{
 	            Assert.assertEquals(actualOutput.trim(), expectedOutput.trim(), "Output mismatch!");
 	        }
 	    }
-	 
+
 	 @Test(priority = 17, description = "Navigation to MaxConsecutive Ones page")
 	    public void testMaxConsecutiveOnesPage() {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
@@ -264,21 +266,23 @@ public class ArrayTest extends BaseTest{
 	   Assert.assertTrue(arrayPage.isSubmitButtonDisplayed(), "Submit button is not displayed");
 
  }
-	 
+
 	 //Practice questions
-	 
-	 @Test(priority = 18, description = "Verify pthon code execution with Excel data", dataProvider = "ArrayData", dataProviderClass = TestDataProvider.class)
+
+	 @Test(priority = 18, description = "Verify pthon code execution with Excel data", dataProvider = "ArrayData-MaxConsecutive", dataProviderClass = TestDataProvider.class)
 	    public void testCodeExecutionWithExcelData5(String code, String expectedOutput) {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
-		 
+
 		 arrayPage.clickgetstartedBtn();
 		 arrayPage.ArraysInPythonButton();
 		 arrayPage.PracticeQuestions();
 		 arrayPage.MaxConsecutiveOnesButton();
-		 arrayPage.Tryhere();
-		 
+		 //arrayPage.Tryhere();
 
-		 arrayPage.enterPythonCode(code, expectedOutput);
+
+		 //arrayPage.enterPythonCode(code, expectedOutput);
+		 arrayPage.enterCode(code);
+
 		 arrayPage.clicksrunBtn();
 
 	        if (expectedOutput.contains("SyntaxError")) {
@@ -290,7 +294,7 @@ public class ArrayTest extends BaseTest{
 	            Assert.assertEquals(actualOutput.trim(), expectedOutput.trim(), "Output mismatch!");
 	        }
 	    }
-	 
+
 	 @Test(priority = 19, description = "Navigation to Find Number With EvenNumber Of Digits page")
 	    public void testFindNumberWithEvenNumberOfDigitsPage() {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
@@ -304,21 +308,23 @@ public class ArrayTest extends BaseTest{
 	   Assert.assertTrue(arrayPage.isSubmitButtonDisplayed(), "Submit button is not displayed");
 
 }
-	 
+
 	 //Practice questions
-	 
-	 @Test(priority = 20, description = "Verify pthon code execution with Excel data", dataProvider = "ArrayData", dataProviderClass = TestDataProvider.class)
+
+	 @Test(priority = 20, description = "Verify pthon code execution with Excel data", dataProvider = "ArrayData-FindEventNum", dataProviderClass = TestDataProvider.class)
 	    public void testCodeExecutionWithExcelData6(String code, String expectedOutput) {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
-		 
+
 		 arrayPage.clickgetstartedBtn();
 		 arrayPage.ArraysInPythonButton();
 		 arrayPage.PracticeQuestions();
-		 arrayPage.MaxConsecutiveOnesButton();
-		 arrayPage.Tryhere();
-		 
+		 arrayPage.FindNumberWithEvenNumberOfDigits();
+		 //arrayPage.Tryhere();
 
-		 arrayPage.enterPythonCode(code, expectedOutput);
+
+		 //arrayPage.enterPythonCode(code, expectedOutput);
+		 arrayPage.enterCode(code);
+
 		 arrayPage.clicksrunBtn();
 
 	        if (expectedOutput.contains("SyntaxError")) {
@@ -344,19 +350,21 @@ public class ArrayTest extends BaseTest{
 	   Assert.assertTrue(arrayPage.isSubmitButtonDisplayed(), "Submit button is not displayed");
 
 }
-	 
-	 @Test(priority = 22, description = "Verify pthon code execution with Excel data", dataProvider = "ArrayData", dataProviderClass = TestDataProvider.class)
+
+	 @Test(priority = 22, description = "Verify pthon code execution with Excel data", dataProvider = "ArrayData-SquareSorted", dataProviderClass = TestDataProvider.class)
 	    public void testCodeExecutionWithExcelData7(String code, String expectedOutput) {
 		 ArrayPage arrayPage = new ArrayPage(getDriver());
-		 
+
 		 arrayPage.clickgetstartedBtn();
 		 arrayPage.ArraysInPythonButton();
 		 arrayPage.PracticeQuestions();
-		 arrayPage.MaxConsecutiveOnesButton();
-		 arrayPage.Tryhere();
-		 
+		 arrayPage.SquaresOfASortedArray();
+		 //arrayPage.Tryhere();
 
-		 arrayPage.enterPythonCode(code, expectedOutput);
+
+		 //arrayPage.enterPythonCode(code, expectedOutput);
+		 arrayPage.enterCode(code);
+
 		 arrayPage.clicksrunBtn();
 
 	        if (expectedOutput.contains("SyntaxError")) {
@@ -368,7 +376,7 @@ public class ArrayTest extends BaseTest{
 	            Assert.assertEquals(actualOutput.trim(), expectedOutput.trim(), "Output mismatch!");
 	        }
 	    }
-	 
+
 	 
 	 
 }

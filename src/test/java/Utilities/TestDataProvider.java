@@ -35,6 +35,27 @@ public class TestDataProvider {
 	        return getExcelData("python PQ"); 
 	    }
 
+		@DataProvider(name = "ArrayData-SearchArray")
+		public Object[][] getExcelDataForArraySearchArray() throws IOException {
+			return getExcelData("SearchArray");
+		}
+
+	@DataProvider(name = "ArrayData-MaxConsecutive")
+	public Object[][] getExcelDataForArrayMaxConsecutive() throws IOException {
+		return getExcelData("MaxConsecutive");
+	}
+
+	@DataProvider(name = "ArrayData-FindEventNum")
+	public Object[][] getExcelDataForArrayFindEventNum() throws IOException {
+		return getExcelData("FindEventNum");
+	}
+
+	@DataProvider(name = "ArrayData-SquareSorted")
+	public Object[][] getExcelDataForArraySquareSorted() throws IOException {
+		return getExcelData("SquareSorted");
+	}
+
+
 	    
 	    private Object[][] getExcelData(String sheetName) throws IOException {
 	        String excelFilePath = "src/test/resources/Excel/TestData.xlsx";

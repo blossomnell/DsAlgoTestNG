@@ -1,6 +1,7 @@
 package pageObjects;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Objects;
 import java.util.Properties;
 
@@ -12,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Utilities.ExcelReader;
@@ -47,6 +49,7 @@ public class ArrayPage {
  		configReader reader = new configReader();
          prop = reader.init_prop();
          PageFactory.initElements(driver, this);
+         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1000));
      }
 	
 	@FindBy(id = "id_username")
@@ -61,7 +64,9 @@ public class ArrayPage {
 	WebElement getstarted_btn;
 	@FindBy(xpath = "//a[@href='arrays-in-python']")       
 	WebElement arraysinpythonlink;
-	@FindBy(xpath = "//a[@href='/tryEditor']")                                           
+	@FindBy(xpath = "//a[@href='arrays-using-list']")
+	WebElement arraysUsingListLink;
+	@FindBy(xpath = "//a[@href='/tryEditor']")
 	WebElement tryhere_btn;
 	@FindBy(xpath = "//a[@href='/tryEditor']")                                           
 	WebElement tryhere1_btn;
@@ -93,13 +98,18 @@ public class ArrayPage {
 	WebElement findnumberwithevennumberofdigitslink;
 	@FindBy (xpath="//a[@href='/question/4']")
 	WebElement squaresofsortedarraylink;
-	
+	@FindBy(xpath = "//form[@id='answer_form']/div/div/div[6]")
+	WebElement codeEditor_click;
 	
 
 	public void clickgetstartedBtn() {
 		getstarted_btn.click();
-		
 	}
+
+//	public void navigateToDataStructuresPage() {
+//		driver.get("https://dsportalapp.herokuapp.com/array");
+//	}
+
 
 		public boolean ArraypageDisplayed() {
 		return Objects.requireNonNull(driver.getCurrentUrl()).endsWith("/array/");              //added
@@ -110,7 +120,13 @@ public class ArrayPage {
 		 arraysinpythonlink.click();
 		
    }
-	
+
+	public void ArraysUsingListButton() {
+		arraysUsingListLink.click();
+
+	}
+
+
 	public boolean isArraysInPythonButtonisDisplayed() {
 		return Objects.requireNonNull(driver.getCurrentUrl()).endsWith("/array/arrays-in-python/");
 		
@@ -151,7 +167,13 @@ public class ArrayPage {
 	}*/
 
 	public void clicksrunBtn() {
-		run_btn.click();
+		try {
+			run_btn.click();
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+			wait.until(ExpectedConditions.alertIsPresent()); // Wait for the alert
+		} catch (Exception e) {
+			System.out.println("No alert present.");
+		}
 		
 	}
 
@@ -167,8 +189,10 @@ public class ArrayPage {
 	}
 
 	public String getOutputTextFromTryEditorPage() {
-		//return output_text.getText();                                 
-		return output_text.getText();
+		if(output_text != null) {
+			return output_text.getText();
+		}
+		return "";
 	}
 
 	public void ArrayUsingList() {
@@ -293,21 +317,21 @@ public class ArrayPage {
 	  }*/
 	
 	public void enterPythonCode(String code, String expectedOutput) {
-	    int coloumn = 0;
-
-	    // Convert expectedOutput to row index (if it's the row index in the sheet)
-	    int rowIndex = Integer.parseInt(expectedOutput);
-
-	    // Read code from Excel (ensure sheet name, row index, and column are correct)
-	    String codeFromExcel = excelReader.getCellData("ArrayData", rowIndex, coloumn);
-
-	    if (codeFromExcel == null || codeFromExcel.isEmpty()) {
-	        System.out.println("Code from Excel is empty or null. Row: " + rowIndex + ", Column: " + coloumn);
-	        throw new IllegalArgumentException("The code fetched from Excel is empty or null.");
-	    }
+//	    int coloumn = 0;
+//
+//	    // Convert expectedOutput to row index (if it's the row index in the sheet)
+//	    int rowIndex = Integer.parseInt(expectedOutput);
+//
+//	    // Read code from Excel (ensure sheet name, row index, and column are correct)
+//	    String codeFromExcel = excelReader.getCellData("ArrayData", rowIndex, coloumn);
+//
+//	    if (codeFromExcel == null || codeFromExcel.isEmpty()) {
+//	        System.out.println("Code from Excel is empty or null. Row: " + rowIndex + ", Column: " + coloumn);
+//	        throw new IllegalArgumentException("The code fetched from Excel is empty or null.");
+//	    }
 
 	    // Enter the code into the text area
-	    enterPythonCodeForPractice(codeFromExcel, txt_code);
+	    enterPythonCodeForPractice(code, txt_code);
 	}
 	
 	
@@ -364,7 +388,21 @@ public class ArrayPage {
 
 	public void enterCode(String code) {
 		// TODO Auto-generated method stub
-		txt_code.sendKeys(code);
+		codeEditor_click.click();
+
+		// Focus on the input field, select all text, and clear it
+		new Actions(driver).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.DELETE).perform();
+
+		String[] str1 = code.split("\n");
+
+		for (int i = 0; i < str1.length; i++) {
+			if (str1[i].equalsIgnoreCase("\\b")) {
+				txt_code.sendKeys(Keys.BACK_SPACE);
+			} else {
+				txt_code.sendKeys(str1[i]);
+				txt_code.sendKeys(Keys.ENTER);
+			}
+		}
 	}
 
 		

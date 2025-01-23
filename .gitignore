@@ -5,3 +5,8 @@ test-output/
 screenshots/testCodeExecutionWithExcelData1.png
 screenshots/testCodeExecutionWithExcelData1.png
 screenshots/testCodeExecutionWithExcelData1.png
+/.idea
+/screenshots
+*.java~
+*.xml~
+*.log
