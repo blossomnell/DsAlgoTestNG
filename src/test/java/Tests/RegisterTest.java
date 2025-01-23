@@ -11,7 +11,7 @@ import Utilities.TestDataProvider;
 @Listeners(Utilities.TestListener.class)
 public class RegisterTest extends BaseTest {
 
-	@Test(priority = 1, description = "navigates to register page")
+	@Test(priority = 1, retryAnalyzer = Utilities.RetryAnalyzer.class, description = "navigates to register page")
 	public void testNavigationToRegisterPage() {
 		LoggerLoad.info("Test Case: Verify navigation to Register Page");
 		RegisterPage registerPage = new RegisterPage(getDriver());
@@ -26,7 +26,7 @@ public class RegisterTest extends BaseTest {
   	    LoggerLoad.info("Test Passed: Register Page is displayed.");
 	}
 	
-    @Test(priority = 2, description = "Test register with multiple data sets", dataProvider = "RegisterData", dataProviderClass = TestDataProvider.class)
+    @Test(priority = 2, retryAnalyzer = Utilities.RetryAnalyzer.class, description = "Test register with multiple data sets", dataProvider = "RegisterData", dataProviderClass = TestDataProvider.class)
     public void testRegister(String username, String password1, String password2, String expectedMessage) {
     	
     	LoggerLoad.info("Test Case: Test registration with multiple data sets");
