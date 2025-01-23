@@ -10,3 +10,5 @@ screenshots/testCodeExecutionWithExcelData1.png
 *.java~
 *.xml~
 *.log
+/.allure
+/screenshots
