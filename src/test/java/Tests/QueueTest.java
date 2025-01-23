@@ -3,9 +3,12 @@ package Tests;
 import baseTest.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pageObjects.QueuePage;
 import Utilities.TestDataProvider;
+
+@Listeners(Utilities.TestListener.class)
 
 public class QueueTest extends BaseTest {
 
