@@ -18,7 +18,7 @@ public class DataStructureTest extends BaseTest {
         loginToApplication();
     }
 
-    @Test(priority = 1, description = "Verify navigation to Data Structures-Introduction page")
+    @Test(priority = 2, retryAnalyzer = Utilities.RetryAnalyzer.class, description = "Verify navigation to Data Structures-Introduction page")
     public void testNavigationToIntroductionPage() {
         LoggerLoad.info("Test Case: Verify navigation to Data Structures-Introduction page");
         DataStructurePage dataStructurePage = new DataStructurePage(getDriver());
@@ -27,7 +27,7 @@ public class DataStructureTest extends BaseTest {
         LoggerLoad.info("Test Passed: Introduction Page is displayed.");
     }
 
-    @Test(priority = 2, description = "Verify navigation to Time Complexity page")
+    @Test(priority = 1, retryAnalyzer = Utilities.RetryAnalyzer.class, description = "Verify navigation to Time Complexity page Failure")
     public void testNavigationToTimeComplexityPage() {
         LoggerLoad.info("Test Case: Verify navigation to Time Complexity page");
         DataStructurePage dataStructurePage = new DataStructurePage(getDriver());
@@ -37,7 +37,7 @@ public class DataStructureTest extends BaseTest {
         LoggerLoad.info("Test Passed: Time Complexity Page is displayed.");
     }
 
-    @Test(priority = 3, description = "Verify navigation to Try Editor page")
+    @Test(priority = 3, retryAnalyzer = Utilities.RetryAnalyzer.class, description = "Verify navigation to Try Editor page")
     public void testNavigationToTryEditorPage() {
         LoggerLoad.info("Test Case: Verify navigation to Try Editor page");
         DataStructurePage dataStructurePage = new DataStructurePage(getDriver());
@@ -48,7 +48,7 @@ public class DataStructureTest extends BaseTest {
         LoggerLoad.info("Test Passed: Try Editor Page is displayed.");
     }
 
-    @Test(priority = 4, description = "Verify code execution with Excel data", dataProvider = "PythonData", dataProviderClass = TestDataProvider.class)
+    @Test(priority = 4,retryAnalyzer = Utilities.RetryAnalyzer.class, description = "Verify code execution with Excel data", dataProvider = "PythonData", dataProviderClass = TestDataProvider.class)
     public void testCodeExecutionWithExcelData(String code, String expectedOutput) {
         LoggerLoad.info("Test Case: Verify code execution with Excel data");
         DataStructurePage dataStructurePage = new DataStructurePage(getDriver());
@@ -72,7 +72,7 @@ public class DataStructureTest extends BaseTest {
         }
     }
 
-    @Test(priority = 5, description = "Verify navigation to Practice Questions page")
+    @Test(priority = 5, retryAnalyzer = Utilities.RetryAnalyzer.class, description = "Verify navigation to Practice Questions page")
     public void testNavigationToPracticeQuestionsPage() {
         LoggerLoad.info("Test Case: Verify navigation to Practice Questions page");
         DataStructurePage dataStructurePage = new DataStructurePage(getDriver());

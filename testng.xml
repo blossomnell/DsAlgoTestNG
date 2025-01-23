@@ -12,9 +12,9 @@
 <!--            <class name="Tests.LoginTest" />-->
 <!--            <class name="Tests.RegisterTest" />-->
 <!--            <class name="Tests.LinkedListTest" />-->
-<!--            <class name="Tests.DataStructureTest" />-->
+            <class name="Tests.DataStructureTest" />
             <class name="Tests.QueueTest" />
-<!--            <class name="Tests.StackTest" />-->
+            <class name="Tests.StackTest" />
 <!--            <class name="Tests.TreeTest" />-->
         </classes>
     </test>
