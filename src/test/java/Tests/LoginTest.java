@@ -39,7 +39,7 @@ public class LoginTest extends BaseTest {
         LoggerLoad.info("Navigated to home page");
         
         loginPage.signin();
-        LoggerLoad.info("Navigated to sign-in page");
+        LoggerLoad.info("Clicked signin button");
         
         loginPage.navigatetologinpage();
         LoggerLoad.info("Navigated to login page");
