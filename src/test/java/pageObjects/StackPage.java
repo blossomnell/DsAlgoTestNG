@@ -1,8 +1,10 @@
 package pageObjects;
 
 import java.time.Duration;
-import java.util.Objects;
+
 import java.util.Properties;
+
+
 import Utilities.configReader;
 
 import org.openqa.selenium.Alert;
@@ -26,6 +28,7 @@ public class StackPage {
         configReader reader = new configReader();
         prop = reader.init_prop();
         PageFactory.initElements(driver, this);
+       
     }
     
     @FindBy(xpath = "//a[@href='stack' and text()='Get Started']")
@@ -80,104 +83,102 @@ public class StackPage {
 	@FindBy(xpath = "//a[@class='navbar-brand' and text()='NumpyNinja']")
 	WebElement practicePage;
 	
-	public void clickGetStarted() {
+	  public void clickGetStarted() {
+	    
+	        getStartedButton.click();
+	    }
 
-		getStartedButton.click();
+	    public boolean isStackPageDisplayed() {
 
-	}
+	        return stackTitle.isDisplayed();
+	    }
 
-	public boolean isStackPageDisplayed() {
+	    public void clickOperationsInStackLink() {
 
-		return stackTitle.isDisplayed();
-	}
+	        operationsInStackLink.click();
+	    }
 
-	public void clickOperationsInStackLink() {
+	    public boolean isOperationsInStackPageDisplayed() {
+	 
+	        return operationsInStackPageTitle.isDisplayed();
+	    }
 
-		operationsInStackLink.click();
-	}
-
-	public boolean isOperationsInStackPageDisplayed() {
-
-		return operationsInStackPageTitle.isDisplayed();
-	}
-
-	public void scrollDownAndClickTryHere() {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView(true);", tryHereButton);
-
-		tryHereButton.click();
-
-	}
+	    public void scrollDownAndClickTryHere() {
 	
-	public boolean isTryEditorPageDisplayed() {
+	        JavascriptExecutor js = (JavascriptExecutor) driver;
+	        js.executeScript("arguments[0].scrollIntoView(true);", tryHereButton);
+	        tryHereButton.click();
+	    }
 
-		return tryEditorPage.isDisplayed();
+	    public boolean isTryEditorPageDisplayed() {
+	   
+	        return tryEditorPage.isDisplayed();
+	    }
+
+	    public void enterCode(String code) {
+
+	        codeEditor_click.click();
+	        codeEditor.sendKeys(code);
+	    }
+
+	    public void clickRunButton() {
+	    
+	        try {
+	            runButton.click();
+	            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+	            wait.until(ExpectedConditions.alertIsPresent());
+	        } catch (Exception e) {
+	          
+	        }
+	    }
+
+	    public String getOutputText() {
+	        
+	        return outputConsole.getText();
+	    }
+
+	    public String handlePopupError() {
+	     
+	        try {
+	            Alert alert = driver.switchTo().alert();
+	            String alertText = alert.getText();
+	         
+	            alert.accept();
+	            return alertText;
+	        } catch (NoAlertPresentException e) {
+	         
+	            return "";
+	        }
+	    }
+
+	    public void clickImplementationLink() {
+	     
+	        ImplementationLink.click();
+	    }
+
+	    public boolean isImplementationPageDisplayed() {
+	      
+	        return implementationPage.isDisplayed();
+	    }
+
+	    public void clickApplicationLink() {
+	       
+	        ApplicationLink.click();
+	    }
+
+	    public boolean isApplicationPageDisplayed() {
+	       
+	        return ApplicationPage.isDisplayed();
+	    }
+
+	    public void clickPracticeQuestionsLink() {
+	    
+	        practiceQuestionLink.click();
+	    }
+
+	    public boolean isPracticePageDisplayed() {
+	   
+	        return practicePage.isDisplayed();
+	    }
 	}
-
-	public void enterCode(String code) {
-
-		codeEditor_click.click();
-
-		// codeEditorTextarea.clear();
-		codeEditor.sendKeys(code);
-	}
-
-	public void clickRunButton() {
-		try {
-			runButton.click();
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-			wait.until(ExpectedConditions.alertIsPresent()); // Wait for the alert
-		} catch (Exception e) {
-			System.out.println("No alert present.");
-		}
-	}
-
-	public String getOutputText() {
-
-		return outputConsole.getText();
-	}
-
-	public String handlePopupError() {
-		try {
-			Alert alert = driver.switchTo().alert();
-			String alertText = alert.getText(); // Get the alert text
-			System.out.println("Alert text: " + alertText);
-			alert.accept(); // Accept the alert
-			return alertText;
-		} catch (NoAlertPresentException e) {
-			return "";
-		}
-	}
-
-
-	public void clickImplementationLink() {
-		ImplementationLink.click();
-
-	}
-
-	public boolean isImplementationPageDisplayed() {
-		return implementationPage.isDisplayed();
-	}
-
-	public void clickApplicationLink() {
-		ApplicationLink.click();
-
-	}
-
-	public boolean isApplicationPageDisplayed() {
-
-		return ApplicationPage.isDisplayed();
-	}
-
-	public void clickPracticeQuestionsLink() {
-		practiceQuestionLink.click();
-	}
-
-	public boolean isPracticePageDisplayed() {
-
-		return practicePage.isDisplayed();
-	}
-
-}
-
 

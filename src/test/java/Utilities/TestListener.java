@@ -1,66 +1,69 @@
 package Utilities;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import org.apache.commons.io.FileUtils;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+import org.testng.ITestContext;
+import baseTest.BaseTest;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
-
-import baseTest.BaseTest;
+import org.apache.commons.io.FileUtils;
+import java.io.File;
+import java.io.IOException;
 
 public class TestListener implements ITestListener {
 
-    @Override
-    public void onTestStart(ITestResult result) {
-        System.out.println("Test Started: " + result.getName());
-    }
-
-    @Override
-    public void onTestSuccess(ITestResult result) {
-        try (FileWriter writer = new FileWriter("test-results.log", true)) {
-            writer.write("Test Passed: " + result.getName() + "\n");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
+	@Override
     public void onTestFailure(ITestResult result) {
-        System.out.println("Test Failed: " + result.getName());
-        
-        // Take a screenshot on failure
-        WebDriver driver = BaseTest.getDriver(); // Assuming BaseTest provides WebDriver access
-        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        try {
-            FileUtils.copyFile(screenshot, new File("screenshots/" + result.getName() + ".png"));
-            System.out.println("Screenshot saved for test: " + result.getName());
-        } catch (IOException e) {
-            e.printStackTrace();
+        // Capture screenshot on failure
+        WebDriver driver = BaseTest.getDriver();
+        if (driver != null) {
+            String testName = result.getName(); // Get test method name
+            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            try {
+                String screenshotPath = "screenshots/" + testName + ".png";
+                FileUtils.copyFile(screenshot, new File(screenshotPath));
+                System.out.println("Screenshot taken for test: " + testName);
+            } catch (IOException e) {
+                System.out.println("Error while taking screenshot: " + e.getMessage());
+            }
+        } else {
+            System.out.println("WebDriver instance is null. Screenshot not taken.");
         }
-    }
 
-    @Override
-    public void onTestSkipped(ITestResult result) {
-        System.out.println("Test Skipped: " + result.getName());
-    }
-
-    @Override
-    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-        System.out.println("Test Failed but within success percentage: " + result.getName());
+        // Check if the test is being retried
+        if (result.getMethod().getRetryAnalyzer(result) != null) {
+            boolean willRetry = result.getMethod().getRetryAnalyzer(result).retry(result);
+            if (willRetry) {
+                System.out.println("Retrying test: " + result.getName());
+            } else {
+                System.out.println("Test failed after retries: " + result.getName());
+            }
+        }
     }
 
     @Override
     public void onStart(ITestContext context) {
-        System.out.println("Test Suite Started: " + context.getName());
+        // No specific action required here
     }
 
     @Override
     public void onFinish(ITestContext context) {
-        System.out.println("Test Suite Finished: " + context.getName());
+        // No specific action required here
+    }
+
+    @Override
+    public void onTestStart(ITestResult result) {
+        // No specific action required here
+    }
+
+    @Override
+    public void onTestSuccess(ITestResult result) {
+        // No specific action required here
+    }
+
+    @Override
+    public void onTestSkipped(ITestResult result) {
+    	System.out.println("Test skipped: " + result.getName());
     }
 }

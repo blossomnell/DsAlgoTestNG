@@ -3,6 +3,7 @@ package pageObjects;
 import java.time.Duration;
 import java.util.Objects;
 import java.util.Properties;
+
 import Utilities.configReader;
 
 import org.openqa.selenium.Alert;
@@ -16,133 +17,135 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DataStructurePage {
 
-    WebDriver driver;
-    Properties prop;
+	WebDriver driver;
+	Properties prop;
 
-    // Constructor to initialize WebDriver and properties
-    public DataStructurePage(WebDriver driver) {
-        this.driver = driver;
-        configReader reader = new configReader();
-        prop = reader.init_prop();
-        PageFactory.initElements(driver, this);
-    }
+	// Constructor to initialize WebDriver and properties
+	public DataStructurePage(WebDriver driver) {
+		this.driver = driver;
+		configReader reader = new configReader();
+		prop = reader.init_prop();
+		PageFactory.initElements(driver, this);
 
-    // Locators for elements on the Data Structure page
-    @FindBy(xpath = "//a[@href='data-structures-introduction' and text()='Get Started']")
-    WebElement getStartedButton;
+	}
 
-    @FindBy(xpath = "//h4[text()='Data Structures-Introduction']")
-    WebElement pageTitle;
+	// Locators for elements on the Data Structure page
+	@FindBy(xpath = "//a[@href='data-structures-introduction' and text()='Get Started']")
+	WebElement getStartedButton;
 
-    @FindBy(xpath = "//a[@href='time-complexity' and text()='Time Complexity']")
-    WebElement timeComplexityLink;
+	@FindBy(xpath = "//h4[text()='Data Structures-Introduction']")
+	WebElement pageTitle;
 
-    @FindBy(xpath = "//p[@class='bg-secondary text-white' and text()='Time Complexity']")
-    WebElement timeComplexityHeading;
+	@FindBy(xpath = "//a[@href='time-complexity' and text()='Time Complexity']")
+	WebElement timeComplexityLink;
 
-    @FindBy(xpath = "//a[@href='/tryEditor' and contains(text(),'Try here')]")
-    WebElement tryHereButton;
-    
-    @FindBy(xpath = "/html/body/div/div")
+	@FindBy(xpath = "//p[@class='bg-secondary text-white' and text()='Time Complexity']")
+	WebElement timeComplexityHeading;
+
+	@FindBy(xpath = "//a[@href='/tryEditor' and contains(text(),'Try here')]")
+	WebElement tryHereButton;
+
+	@FindBy(xpath = "/html/body/div/div")
 	WebElement tryEditorPage;
 
 	@FindBy(xpath = "//form[@id='answer_form']/div/div/div[6]")
 	WebElement codeEditor_click;
-	
-    @FindBy(xpath = "//form[@id='answer_form']/div/div/div/textarea")
-    WebElement codeEditor;
 
-    @FindBy(xpath = "//button[@type='button']")
-    WebElement runButton;
+	@FindBy(xpath = "//form[@id='answer_form']/div/div/div/textarea")
+	WebElement codeEditor;
 
-    @FindBy(xpath = "//*[@id='output']")
-    WebElement outputConsole;
+	@FindBy(xpath = "//button[@type='button']")
+	WebElement runButton;
 
-    @FindBy(xpath = "/html/body/div[2]/div/div[1]/div/a")
-    WebElement practiceQuestionsLink;
+	@FindBy(xpath = "//*[@id='output']")
+	WebElement outputConsole;
 
-    // Methods for actions on the Data Structure page
+	@FindBy(xpath = "/html/body/div[2]/div/div[1]/div/a")
+	WebElement practiceQuestionsLink;
 
-    // Navigate to the Data Structures page
-    public void navigateToDataStructuresPage() {
-        driver.get(prop.getProperty("testurl") + "/data-structures-introduction");
-    }
+	// Methods for actions on the Data Structure page
 
-    // Click the Get Started button
-    public void clickGetStarted() {
-        getStartedButton.click();
-    }
+	// Navigate to the Data Structures page
+	public void navigateToDataStructuresPage() {
 
-    // Check if the Introduction Page is displayed
-    public boolean isIntroductionPageDisplayed() {
-        return pageTitle.isDisplayed() && pageTitle.getText().contains("Data Structures");
-    }
+		driver.get(prop.getProperty("testurl") + "/data-structures-introduction");
+	}
 
-    // Click the Time Complexity link
-    public void clickTimeComplexityLink() {
-        timeComplexityLink.click();
-    }
+	public void clickGetStarted() {
 
-    // Check if the Time Complexity page is displayed
-    public boolean isTimeComplexityPageDisplayed() {
-        return timeComplexityHeading.isDisplayed();
-    }
+		getStartedButton.click();
+	}
 
-    // Click the Try Here button
-    public void clickTryHereButton() {
-        tryHereButton.click();
-    }
-    public boolean isTryEditorPageDisplayed() {
+	public boolean isIntroductionPageDisplayed() {
+
+		return pageTitle.isDisplayed() && pageTitle.getText().contains("Data Structures");
+	}
+
+	public void clickTimeComplexityLink() {
+
+		timeComplexityLink.click();
+	}
+
+	public boolean isTimeComplexityPageDisplayed() {
+
+		return timeComplexityHeading.isDisplayed();
+	}
+
+	public void clickTryHereButton() {
+
+		tryHereButton.click();
+	}
+
+	public boolean isTryEditorPageDisplayed() {
 
 		return tryEditorPage.isDisplayed();
 	}
 
-    public void enterCode(String code) {
+	public void enterCode(String code) {
 
 		codeEditor_click.click();
-
-		// codeEditorTextarea.clear();
 		codeEditor.sendKeys(code);
 	}
 
-    public void clickRunButton() {
+	public void clickRunButton() {
+
 		try {
 			runButton.click();
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-			wait.until(ExpectedConditions.alertIsPresent()); // Wait for the alert
+			wait.until(ExpectedConditions.alertIsPresent());
+
 		} catch (Exception e) {
-			System.out.println("No alert present.");
+
 		}
 	}
-    
 
-    // Get output text from the console
-    public String getOutputText() {
-        return outputConsole.getText();
-    }
+	public String getOutputText() {
 
-    // Click the Practice Questions link
-    public void clickPracticeQuestionsLink() {
-        practiceQuestionsLink.click();
-    }
+		return outputConsole.getText();
+	}
 
-    
-    public String handlePopupError() {
+	public void clickPracticeQuestionsLink() {
+
+		practiceQuestionsLink.click();
+	}
+
+	public String handlePopupError() {
+
 		try {
 			Alert alert = driver.switchTo().alert();
-			String alertText = alert.getText(); // Get the alert text
-			System.out.println("Alert text: " + alertText);
-			alert.accept(); // Accept the alert
+			String alertText = alert.getText();
+
+			alert.accept();
 			return alertText;
 		} catch (NoAlertPresentException e) {
+
 			return "";
 		}
 	}
 
-    
-    public boolean isPracticeQuestionsPageDisplayed() {
-        return Objects.requireNonNull(driver.getCurrentUrl()).contains("practice")
-                || practiceQuestionsLink.isDisplayed();
-    }
-}
+	public boolean isPracticeQuestionsPageDisplayed() {
 
+		return Objects.requireNonNull(driver.getCurrentUrl()).contains("practice")
+				|| practiceQuestionsLink.isDisplayed();
+	}
+}

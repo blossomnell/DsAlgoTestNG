@@ -3,6 +3,8 @@ package pageObjects;
 import java.time.Duration;
 import java.util.Objects;
 import java.util.Properties;
+
+
 import Utilities.configReader;
 
 import org.openqa.selenium.Alert;
@@ -25,6 +27,7 @@ public class QueuePage {
         configReader reader = new configReader();
         prop = reader.init_prop();
         PageFactory.initElements(driver, this);
+      
     }
     @FindBy(xpath = "//a[@href='queue' and text()='Get Started']")
 	WebElement getStartedButton;
@@ -81,112 +84,112 @@ public class QueuePage {
 	@FindBy(xpath = "/html")
 	WebElement practiceQuestionsPageTitle;
 	
-	public void clickGetStarted() {
-		getStartedButton.click();
+	 public void clickGetStarted() {
+	        
+	        getStartedButton.click();
+	    }
+
+	    public boolean isQueuePageDisplayed() {
+	      
+	        return QueuePageTitle.isDisplayed();
+	    }
+
+	    public void clickImplementationOfQueueInPythonLink() {
+	       
+	        ImplementationOfQueueInPythonLink.click();
+	    }
+
+	    public boolean isImplementationOfQueueInPythonPageDisplayed() {
+	      
+	        return ImplementationOfQueueInPythonPageTitle.isDisplayed();
+	    }
+
+	    public boolean isImplementationUsingCollectionDequePageDispayed() {
+	      
+	        return ImplementationUsingCollectionsDequePageTitle.isDisplayed();
+	    }
+
+	    public void clickImplementationUsingCollectionsDequeLink() {
+	    
+	        ImplementationUsingCollectionsDequeLink.click();
+	    }
+
+	    public void clickImplementationUsingarrayLink() {
+	     
+	        ImplementationUsingArrayLink.click();
+	    }
+
+	    public boolean isImplementationUsingArrayPageDispayed() {
+	    
+	        return ImplementationUsingArrayPageTitle.isDisplayed();
+	    }
+
+	    public void clickQueueOperationsLink() {
+
+	        QueueOperationsLink.click();
+	    }
+
+	    public boolean isQueueOperationsPageDispayed() {
+	
+	        return QueueOperationsTitle.isDisplayed();
+	    }
+
+	    public void clickTryhereButton() {
+
+	        tryHereButton.click();
+	    }
+
+	    public boolean isTryEditorPageDisplayed() {
+	   
+	        return tryEditorPage.isDisplayed();
+	    }
+
+	    public void enterCode(String code) {
+
+	        codeEditor_click.click();
+	        codeEditor.sendKeys(code);
+	    }
+
+	    public void clickRunButton() {
+	 
+	        try {
+	            runButton.click();
+	            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+	            wait.until(ExpectedConditions.alertIsPresent());
+	        } catch (Exception e) {
+	   
+	        }
+	    }
+
+	    public String getOutputText() {
+
+	        return outputConsole.getText();
+	    }
+
+	    public String handlePopupError() {
+	
+	        try {
+	            Alert alert = driver.switchTo().alert();
+	            String alertText = alert.getText();
+	     
+	            alert.accept();
+	            return alertText;
+	        } catch (NoAlertPresentException e) {
+	     
+	            return "";
+	        }
+	    }
+
+	    public void clickPracticeQuestionsLink() {
+	   
+	        practiceQuestionsLink.click();
+	    }
+
+	    public boolean ispracticeQuestionPageDisplayed() {
+	   
+	        return practiceQuestionsPageTitle.isDisplayed();
+	    }
 	}
-
-	public boolean isQueuePageDisplayed() {
-
-		return QueuePageTitle.isDisplayed();
-	}
-
-	public void clickImplementationOfQueueInPythonLink() {
-		ImplementationOfQueueInPythonLink.click();
-	}
-
-	public boolean isImplementationOfQueueInPythonPageDisplayed() {
-		return ImplementationOfQueueInPythonPageTitle.isDisplayed();
-	}
-
-	public boolean isImplementationUsingCollectionDequePageDispayed() {
-
-		return ImplementationUsingCollectionsDequePageTitle.isDisplayed();
-	}
-
-	public void clickImplementationUsingCollectionsDequeLink() {
-		ImplementationUsingCollectionsDequeLink.click();
-	}
-
-	public void clickImplementationUsingarrayLink() {
-		ImplementationUsingArrayLink.click();
-
-	}
-
-	public boolean isImplementationUsingArrayPageDispayed() {
-
-		return ImplementationUsingArrayPageTitle.isDisplayed();
-	}
-
-	public void clickQueueOperationsLink() {
-		QueueOperationsLink.click();
-
-	}
-
-	public boolean isQueueOperationsPageDispayed() {
-
-		return QueueOperationsTitle.isDisplayed();
-	}
-
-	public void clickTryhereButton() {
-		tryHereButton.click();
-	}
-		
-		
-	public boolean isTryEditorPageDisplayed() {
-
-			return tryEditorPage.isDisplayed();
-		}
-
-		public void enterCode(String code) {
-
-			codeEditor_click.click();
-
-			// codeEditorTextarea.clear();
-			codeEditor.sendKeys(code);
-		}
-
-		public void clickRunButton() {
-			try {
-				runButton.click();
-				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-				wait.until(ExpectedConditions.alertIsPresent()); // Wait for the alert
-			} catch (Exception e) {
-				System.out.println("No alert present.");
-			}
-		}
-
-		public String getOutputText() {
-
-			return outputConsole.getText();
-		}
-
-		public String handlePopupError() {
-			try {
-				Alert alert = driver.switchTo().alert();
-				String alertText = alert.getText(); // Get the alert text
-				System.out.println("Alert text: " + alertText);
-				alert.accept(); // Accept the alert
-				return alertText;
-			} catch (NoAlertPresentException e) {
-				return "";
-			}
-		}
-
-		public void clickPracticeQuestionsLink() {
-			practiceQuestionsLink.click();
-
-		}
-
-		public boolean ispracticeQuestionPageDisplayed() {
-
-			return practiceQuestionsPageTitle.isDisplayed();
-		}
-
-
-
-	}
-
-
 
 
 
