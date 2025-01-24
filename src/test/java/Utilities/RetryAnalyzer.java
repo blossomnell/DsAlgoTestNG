@@ -4,16 +4,20 @@ import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 
 public class RetryAnalyzer implements IRetryAnalyzer {
-    private int count = 0;
-    private static final int MAX_RETRY_COUNT = 2; // Retry up to 2 times
+
+    private int retryCount = 0; // Current retry attempt
+    private static final int maxRetryCount = 2; // Maximum retry attempts
 
     @Override
     public boolean retry(ITestResult result) {
-        if (count < MAX_RETRY_COUNT) {
-            count++;
-            System.out.println("Retrying test: " + result.getName() + " | Attempt: " + (count + 1));
-            return true;
+        // Check if the test can be retried
+        if (retryCount < maxRetryCount) {
+            retryCount++; // Increment retry counter
+            System.out.println("Retrying test: " + result.getName() + " | Retry attempt: " + retryCount);
+            return true; // Retry the test
         }
-        return false;
+        // Log failure after all retries
+        System.out.println("Test failed after " + retryCount + " retries: " + result.getName());
+        return false; // No more retries
     }
 }
