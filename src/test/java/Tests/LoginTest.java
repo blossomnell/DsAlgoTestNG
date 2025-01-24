@@ -22,7 +22,7 @@ public class LoginTest extends BaseTest {
 		LoggerLoad.info("Navigated to home page");
 		
         loginPage.signin();
-        LoggerLoad.info("Navigated to sign-in page");
+        LoggerLoad.info("Clicked signin button");
         
         Assert.assertTrue(loginPage.isLoginPageDisplayed(), "Login Page is not displayed!");
         LoggerLoad.info("Test Passed: Login Page is displayed.");
