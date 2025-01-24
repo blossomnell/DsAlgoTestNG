@@ -16,8 +16,13 @@ public class LoginTest extends BaseTest {
 	public void testsignin() {
 		LoggerLoad.info("Test Case: Verify navigation to sign in page");
 		LoginPage loginPage = new LoginPage(getDriver());
+		
 		loginPage.navigatetohomepage();
+		LoggerLoad.info("Navigated to home page");
+		
         loginPage.signin();
+        LoggerLoad.info("Navigated to sign-in page");
+        
         Assert.assertTrue(loginPage.isLoginPageDisplayed(), "Login Page is not displayed!");
         LoggerLoad.info("Test Passed: Login Page is displayed.");
 		

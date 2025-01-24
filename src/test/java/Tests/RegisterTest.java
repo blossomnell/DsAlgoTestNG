@@ -14,6 +14,7 @@ public class RegisterTest extends BaseTest {
 	@Test(priority = 1, retryAnalyzer = Utilities.RetryAnalyzer.class, description = "navigates to register page")
 	public void testNavigationToRegisterPage() {
 		LoggerLoad.info("Test Case: Verify navigation to Register Page");
+		
 		RegisterPage registerPage = new RegisterPage(getDriver());
 	
 		registerPage.navigatetohomepage();
@@ -43,7 +44,6 @@ public class RegisterTest extends BaseTest {
     	  registerPage.enterUsername(username);
     	  LoggerLoad.info("Entered username: " + username);
     	  
-    	  registerPage.enterPassword1(password1);
     	  registerPage.enterPassword1(password1);
           LoggerLoad.info("Entered password: " + password1);
           
