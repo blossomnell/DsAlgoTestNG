@@ -10,16 +10,16 @@
         <classes>
 
                
-             <!-- <class name="Tests.GraphTest" />-->
+             <class name="Tests.GraphTest" />
                 <class name="Tests.ArrayTest" />
-            <!--<class name="Tests.HomeTest" />
+           <class name="Tests.HomeTest" />
             <class name="Tests.LoginTest" />
             <class name="Tests.RegisterTest" />
             <class name="Tests.LinkedListTest" />
             <class name="Tests.DataStructureTest" />
             <class name="Tests.QueueTest" />
             <class name="Tests.StackTest" />
-            <class name="Tests.TreeTest" />-->
+            <class name="Tests.TreeTest" />
         </classes>
     </test>
     
