@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.util.Objects;
 import java.util.Properties;
 
-import Utilities.LoggerLoad;
+
 import Utilities.configReader;
 
 import org.openqa.selenium.Alert;
@@ -27,7 +27,7 @@ public class QueuePage {
         configReader reader = new configReader();
         prop = reader.init_prop();
         PageFactory.initElements(driver, this);
-        LoggerLoad.info("QueuePage initialized.");
+      
     }
     @FindBy(xpath = "//a[@href='queue' and text()='Get Started']")
 	WebElement getStartedButton;
@@ -85,108 +85,108 @@ public class QueuePage {
 	WebElement practiceQuestionsPageTitle;
 	
 	 public void clickGetStarted() {
-	        LoggerLoad.info("Clicking on 'Get Started' button for Queue Page...");
+	        
 	        getStartedButton.click();
 	    }
 
 	    public boolean isQueuePageDisplayed() {
-	        LoggerLoad.info("Verifying if Queue Page is displayed...");
+	      
 	        return QueuePageTitle.isDisplayed();
 	    }
 
 	    public void clickImplementationOfQueueInPythonLink() {
-	        LoggerLoad.info("Clicking on 'Implementation of Queue in Python' link...");
+	       
 	        ImplementationOfQueueInPythonLink.click();
 	    }
 
 	    public boolean isImplementationOfQueueInPythonPageDisplayed() {
-	        LoggerLoad.info("Verifying if Implementation of Queue in Python Page is displayed...");
+	      
 	        return ImplementationOfQueueInPythonPageTitle.isDisplayed();
 	    }
 
 	    public boolean isImplementationUsingCollectionDequePageDispayed() {
-	        LoggerLoad.info("Verifying if Implementation Using Collections Deque Page is displayed...");
+	      
 	        return ImplementationUsingCollectionsDequePageTitle.isDisplayed();
 	    }
 
 	    public void clickImplementationUsingCollectionsDequeLink() {
-	        LoggerLoad.info("Clicking on 'Implementation Using Collections Deque' link...");
+	    
 	        ImplementationUsingCollectionsDequeLink.click();
 	    }
 
 	    public void clickImplementationUsingarrayLink() {
-	        LoggerLoad.info("Clicking on 'Implementation Using Array' link...");
+	     
 	        ImplementationUsingArrayLink.click();
 	    }
 
 	    public boolean isImplementationUsingArrayPageDispayed() {
-	        LoggerLoad.info("Verifying if Implementation Using Array Page is displayed...");
+	    
 	        return ImplementationUsingArrayPageTitle.isDisplayed();
 	    }
 
 	    public void clickQueueOperationsLink() {
-	        LoggerLoad.info("Clicking on 'Queue Operations' link...");
+
 	        QueueOperationsLink.click();
 	    }
 
 	    public boolean isQueueOperationsPageDispayed() {
-	        LoggerLoad.info("Verifying if Queue Operations Page is displayed...");
+	
 	        return QueueOperationsTitle.isDisplayed();
 	    }
 
 	    public void clickTryhereButton() {
-	        LoggerLoad.info("Clicking on 'Try Here' button...");
+
 	        tryHereButton.click();
 	    }
 
 	    public boolean isTryEditorPageDisplayed() {
-	        LoggerLoad.info("Verifying if Try Editor Page is displayed...");
+	   
 	        return tryEditorPage.isDisplayed();
 	    }
 
 	    public void enterCode(String code) {
-	        LoggerLoad.info("Entering code into the editor...");
+
 	        codeEditor_click.click();
 	        codeEditor.sendKeys(code);
 	    }
 
 	    public void clickRunButton() {
-	        LoggerLoad.info("Clicking the 'Run' button...");
+	 
 	        try {
 	            runButton.click();
 	            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
 	            wait.until(ExpectedConditions.alertIsPresent());
 	        } catch (Exception e) {
-	            LoggerLoad.warn("No alert present after clicking 'Run' button.");
+	   
 	        }
 	    }
 
 	    public String getOutputText() {
-	        LoggerLoad.info("Fetching output text from the console...");
+
 	        return outputConsole.getText();
 	    }
 
 	    public String handlePopupError() {
-	        LoggerLoad.info("Handling popup error...");
+	
 	        try {
 	            Alert alert = driver.switchTo().alert();
 	            String alertText = alert.getText();
-	            LoggerLoad.info("Popup alert text: " + alertText);
+	     
 	            alert.accept();
 	            return alertText;
 	        } catch (NoAlertPresentException e) {
-	            LoggerLoad.warn("No popup alert present.");
+	     
 	            return "";
 	        }
 	    }
 
 	    public void clickPracticeQuestionsLink() {
-	        LoggerLoad.info("Clicking on 'Practice Questions' link...");
+	   
 	        practiceQuestionsLink.click();
 	    }
 
 	    public boolean ispracticeQuestionPageDisplayed() {
-	        LoggerLoad.info("Verifying if Practice Questions Page is displayed...");
+	   
 	        return practiceQuestionsPageTitle.isDisplayed();
 	    }
 	}
