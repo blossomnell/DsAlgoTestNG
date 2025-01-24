@@ -18,7 +18,7 @@ public class DataStructureTest extends BaseTest {
         loginToApplication();
     }
 
-    @Test(priority = 2, retryAnalyzer = Utilities.RetryAnalyzer.class, description = "Verify navigation to Data Structures-Introduction page")
+    @Test(priority = 1, retryAnalyzer = Utilities.RetryAnalyzer.class, description = "Verify navigation to Data Structures-Introduction page")
     public void testNavigationToIntroductionPage() {
         LoggerLoad.info("Test Case: Verify navigation to Data Structures-Introduction page");
         DataStructurePage dataStructurePage = new DataStructurePage(getDriver());
@@ -27,7 +27,7 @@ public class DataStructureTest extends BaseTest {
         LoggerLoad.info("Test Passed: Introduction Page is displayed.");
     }
 
-    @Test(priority = 1, retryAnalyzer = Utilities.RetryAnalyzer.class, description = "Verify navigation to Time Complexity page Failure")
+    @Test(priority = 2, retryAnalyzer = Utilities.RetryAnalyzer.class, description = "Verify navigation to Time Complexity page Failure")
     public void testNavigationToTimeComplexityPage() {
         LoggerLoad.info("Test Case: Verify navigation to Time Complexity page");
         DataStructurePage dataStructurePage = new DataStructurePage(getDriver());
