@@ -13,6 +13,7 @@ import Utilities.TestDataProvider;
 public class LoginTest extends BaseTest {
 
 	@Test(priority = 1, retryAnalyzer = Utilities.RetryAnalyzer.class,  description = "Navigates to sign in page")
+
 	public void testsignin() {
 		LoggerLoad.info("Test Case: Verify navigation to sign in page");
 		LoginPage loginPage = new LoginPage(getDriver());
@@ -27,7 +28,6 @@ public class LoginTest extends BaseTest {
         LoggerLoad.info("Test Passed: Login Page is displayed.");
 		
 	}
-	
 	
     @Test(priority = 2, retryAnalyzer = Utilities.RetryAnalyzer.class, description = "Test login with multiple data sets", dataProvider = "LoginData", dataProviderClass = TestDataProvider.class)
     public void testLogin(String username, String password, String expectedMessage) {

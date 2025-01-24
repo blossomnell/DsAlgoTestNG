@@ -9,11 +9,18 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class TestDataProvider {
-	 @DataProvider(name = "LoginData")
-	    public Object[][] getExcelDataForLogin() throws IOException {
-	        return getExcelData("Login");
-	    }
+	 
 
+    @DataProvider(name = "LoginData")
+    public Object[][] getLoginData() throws IOException {
+        return getExcelData("Login");
+    }
+
+    @DataProvider(name = "PythonData")
+    public Object[][] getExcelDataForDataStructures() throws IOException {
+        return getExcelData("python DS"); 
+    }
+   
 	    @DataProvider(name = "RegisterData")
 	    public Object[][] getExcelDataForRegister() throws IOException {
 	        return getExcelData("Register"); 
@@ -30,7 +37,9 @@ public class TestDataProvider {
 	        //String excelFilePath = System.getProperty("user.dir") + "/src/test/resources/Excel/TestData.xlsx";
 
 
+
 	        FileInputStream file = new FileInputStream(excelFilePath);
+
 
 	        XSSFWorkbook workbook = new XSSFWorkbook(file);
 	        XSSFSheet sheet = workbook.getSheet(sheetName); // Access the specified sheet
@@ -52,7 +61,20 @@ public class TestDataProvider {
 
 	        return data; // Return the data as a 2D array
 	    }
+	    
+	    @DataProvider(name = "dropdownOptions")
+	    public static Object[][] selectdropdownOptions() {
+	    	return new Object[][]{
+	    		{"Arrays","Array"},	        	
+	        	{"Linked List","Linked List"},
+	        	{"Stack","Stack"},
+	        	{"Queue","Queue"},
+	        	{"Tree","Tree"},
+	        	{"Graph","Graph"}
+
+	        	
+	        };
 	}
 		
-
+}
 

@@ -1,3 +1,10 @@
 /target/
 allure-results/
 test-output/
+<<<<<<< HEAD
+=======
+/.allure
+*.log
+*.log
+>>>>>>> de8cf0a479ea1e6a349befd94fb8900382519bd4
+/screenshots

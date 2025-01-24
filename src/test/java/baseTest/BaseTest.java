@@ -1,4 +1,6 @@
+
 package baseTest;
+
 
 import java.io.IOException;
 import java.util.Properties;
@@ -50,6 +52,7 @@ public class BaseTest {
 //  	  String excelFilePath = "src/test/resources/loginData.xlsx";
   	    ExcelReader excelReader = new ExcelReader(excelFilePath);
 
+
   	    // Read credentials from the Excel sheet
   	    String username = excelReader.getCellData("LoginValidData", 0, 1); // Row 0, Column 1
   	    String password = excelReader.getCellData("LoginValidData", 1, 1); // Row 1, Column 1
@@ -74,4 +77,3 @@ public class BaseTest {
   }
   }
 }
-
