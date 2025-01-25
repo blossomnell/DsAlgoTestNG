@@ -22,21 +22,6 @@ public class GraphPage {
 	  Properties prop;
 	 
 	
-	//public GraphPage() {
-		//GraphPage.driver = DriverFactory.getDriver();
-		
-		//PageFactory.initElements(driver, this);
-		//configReader reader = new configReader();
-		//prop = reader.init_prop();
-		
-      /* try {
-     	
-			String filePath = System.getProperty("user.dir") + "/" + reader.init_prop().getProperty("excelFilePath");
-     	//String filePath = System.getProperty("user.dir") + "/src/test/resources/config/TestData.xlsx";
-         excelReader = new ExcelReader(filePath);
-     } catch (IOException e) {
-     	throw new RuntimeException("Failed to load TestData.xlsx file: " + e.getMessage(), e);
-     }*/
 	  public GraphPage(WebDriver driver) {
 	    	 this.driver = driver;
 	 		configReader reader = new configReader();
@@ -45,8 +30,6 @@ public class GraphPage {
 	     }
 	  
 	  
-	  
-	
 	@FindBy(id = "id_username")
 	WebElement txt_username;
 	@FindBy(id = "id_password")
@@ -120,35 +103,9 @@ public boolean isRunButtonDisplayed() {
 	else 
 		return true;
 }
-//added code in page
-/*public void handleAlert() {
- try {
-     Alert alert = driver.switchTo().alert();
-     System.out.println("Alert text: " + alert.getText());
-     alert.accept(); // Accept the alert
- } catch (NoAlertPresentException e) {
-     System.out.println("No alert present");
- }
-}*/
 
-
-
-/*public void enterCode(String sheetName, Integer row) {
-	int coloumn = 0;
- String code = excelReader.getCellData(sheetName, row, coloumn);
- if(code == null || code.isEmpty()) {
- 	throw  new IllegalArgumentException("The code fetched fromExcel is empty or null.");
- }
- 
- System.out.println("Code entered in editor:" + code);
-
-	txt_code.sendKeys(code);
-	
-}*/
 	 
 public void enterCode(String code) {
-	//codeEditor_click.click();	
-	//codeEditor.sendKeys(code);
 	txt_code.sendKeys(code);
 }
 
@@ -157,19 +114,10 @@ public void clicksrunBtn() {
 		
 }
 
-
 public String getOutputTextFromTryEditorPage() {
 	return output_text.getText();
 }
 
-
-/*public String getPopupAlertText() {
-		 
-	Alert alert = driver.switchTo().alert();
- String alertText = alert.getText();
- alert.accept();
- return alertText;
-}*/
 public String getPopupAlertText() {
     try {
         Alert alert = driver.switchTo().alert();
@@ -209,38 +157,6 @@ public void clicksrunBtn2() {
 public boolean isPracticeQuestionsPageDisplayed() {
 	return Objects.requireNonNull(driver.getCurrentUrl()).endsWith("/graph/practice");
 }
-
-/*public void enterPythonCode(String sheetName, Integer row) {
-	int coloumn = 0;
- 
-	String code = excelReader.getCellData(sheetName, row, coloumn);
- if(code == null || code.isEmpty()) {
- 	throw  new IllegalArgumentException("The code fetched fromExcel is empty or null.");
- }
-
-	enterPythonCodeForPractice(code, txt_code);
-	
-}
-
-public void enterPythonCodeForPractice(String code, WebElement element)
-{
-new Actions(driver).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.DELETE).perform();
-String[] str1 = code.split("\n");
-
-for (int i = 0; i < str1.length; i++) {
-	System.out.println(str1[i]);
- if (str1[i].equalsIgnoreCase("\\b")) {
-   element.sendKeys(Keys.BACK_SPACE);
- } else {
-   element.sendKeys(str1[i]);
-   element.sendKeys(Keys.ENTER);
- }
-}
-}
-
-public String getExcelData(String sheetName, Integer row, int column) {
-	return excelReader.getCellData(sheetName, row, column);
-}*/
 
 
 

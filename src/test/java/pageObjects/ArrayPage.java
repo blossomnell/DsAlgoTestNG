@@ -28,21 +28,7 @@ public class ArrayPage {
 	
 	 ExcelReader excelReader;
 	    	    
-	 
-	/*public ArrayPage() {
-		
-		PageFactory.initElements(driver, this);
-		configReader reader = new configReader();
-		prop = reader.init_prop();
-      
-		try {
-       	String filePath = System.getProperty("user.dir") + "/" + reader.init_prop().getProperty("excelFilePath");
-           excelReader = new ExcelReader(filePath);
-       } catch (IOException e) {
-       	throw new RuntimeException("Failed to load TestData.xlsx file: " + e.getMessage(), e);
-       }
-
-}*/
+	
 	
 	 public ArrayPage(WebDriver driver) {
     	 this.driver = driver;
@@ -106,10 +92,6 @@ public class ArrayPage {
 		getstarted_btn.click();
 	}
 
-//	public void navigateToDataStructuresPage() {
-//		driver.get("https://dsportalapp.herokuapp.com/array");
-//	}
-
 
 		public boolean ArraypageDisplayed() {
 		return Objects.requireNonNull(driver.getCurrentUrl()).endsWith("/array/");              //added
@@ -150,21 +132,6 @@ public class ArrayPage {
 	}
 	
 	
-	
-	/*public void enterCode(String sheetName, Integer row) {
-		int coloumn = 0;
-	    String code = excelReader.getCellData(sheetName, row, coloumn);
-	    if(code == null || code.isEmpty()) {
-	    	throw  new IllegalArgumentException("The code fetched fromExcel is empty or null.");
-	    }
-	    
-	    System.out.println("Code entered in editor:" + code);
-	
-		txt_code.sendKeys(code);
-		//codeEditor_click.click();
-		
-		
-	}*/
 
 	public void clicksrunBtn() {
 		try {
@@ -284,58 +251,12 @@ public class ArrayPage {
 	}
 	
 	
-	/*public void enterPythonCode(String code, Integer expectedOutput) {
-		int coloumn = 0;
-	    
-		String code = excelReader.getCellData(code, expectedOutput, coloumn);
-	    if(code == null || code.isEmpty()) {
-	    	throw  new IllegalArgumentException("The code fetched fromExcel is empty or null.");
-	    }
-	    
-	    
-		enterPythonCodeForPractice(code, txt_code);
-	    
-	    //arrayPage.enterCode(code);
-		//arrayPage.clicksrunBtn();
-
-	}
-	
-	public void enterPythonCodeForPractice(String code, WebElement element)
-	  {
-	    new Actions(driver).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.DELETE).perform();
-	    String[] str1 = code.split("\n");
-	    
-	    for (int i = 0; i < str1.length; i++) {
-	    	System.out.println(str1[i]);
-	      if (str1[i].equalsIgnoreCase("\\b")) {
-	        element.sendKeys(Keys.BACK_SPACE);
-	      } else {
-	        element.sendKeys(str1[i]);
-	        element.sendKeys(Keys.ENTER);
-	      }
-	    }
-	  }*/
 	
 	public void enterPythonCode(String code, String expectedOutput) {
-//	    int coloumn = 0;
-//
-//	    // Convert expectedOutput to row index (if it's the row index in the sheet)
-//	    int rowIndex = Integer.parseInt(expectedOutput);
-//
-//	    // Read code from Excel (ensure sheet name, row index, and column are correct)
-//	    String codeFromExcel = excelReader.getCellData("ArrayData", rowIndex, coloumn);
-//
-//	    if (codeFromExcel == null || codeFromExcel.isEmpty()) {
-//	        System.out.println("Code from Excel is empty or null. Row: " + rowIndex + ", Column: " + coloumn);
-//	        throw new IllegalArgumentException("The code fetched from Excel is empty or null.");
-//	    }
 
-	    // Enter the code into the text area
 	    enterPythonCodeForPractice(code, txt_code);
 	}
 	
-	
-
 	public void enterPythonCodeForPractice(String code, WebElement element) {
 	    new Actions(driver).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.DELETE).perform();
 	    String[] str1 = code.split("\n");
