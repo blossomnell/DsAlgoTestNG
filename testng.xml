@@ -8,18 +8,16 @@
         <parameter name="browser" value="chrome" />
         <parameter name="headless" value="false" />
         <classes>
-
             <class name="Tests.HomeTest" />
             <class name="Tests.LoginTest" />
             <class name="Tests.RegisterTest" />
-            <class name="Tests.LinkedListTest" />
+            <class name="Tests.ArrayTest" />
             <class name="Tests.DataStructureTest" />
+            <class name="Tests.GraphTest" />
+            <class name="Tests.LinkedListTest" />
             <class name="Tests.QueueTest" />
             <class name="Tests.StackTest" />
             <class name="Tests.TreeTest" />
-            <class name="Tests.ArrayTest" />
-            <class name="Tests.GraphTest" />
-            
         </classes>
     </test>
     
@@ -27,12 +25,14 @@
 <!--        <parameter name="browser" value="firefox" />-->
 <!--        <parameter name="headless" value="false" />-->
 <!--        <classes>-->
+<!--            <class name="Tests.HomeTest" />-->
 <!--            <class name="Tests.LoginTest" />-->
 <!--            <class name="Tests.RegisterTest" />-->
+<!--             <class name="Tests.DataStructureTest" />-->
 <!--            <class name="Tests.LinkedListTest" />-->
-<!--            <class name="Tests.DataStructureTest" />-->
 <!--            <class name="Tests.QueueTest" />-->
 <!--            <class name="Tests.StackTest" />-->
+<!--            <class name="Tests.TreeTest" />-->
 <!--        </classes>-->
 <!--    </test>-->
     
@@ -40,13 +40,14 @@
 <!--        <parameter name="browser" value="edge" />-->
 <!--        <parameter name="headless" value="false" />-->
 <!--        <classes>-->
+<!--            <class name="Tests.HomeTest" />-->
 <!--            <class name="Tests.LoginTest" />-->
 <!--            <class name="Tests.RegisterTest" />-->
+<!--             <class name="Tests.DataStructureTest" />-->
 <!--            <class name="Tests.LinkedListTest" />-->
-<!--            <class name="Tests.DataStructureTest" />-->
 <!--            <class name="Tests.QueueTest" />-->
 <!--            <class name="Tests.StackTest" />-->
+<!--            <class name="Tests.TreeTest" />-->
 <!--        </classes>-->
 <!--    </test>-->
 </suite>
-
