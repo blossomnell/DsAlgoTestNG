@@ -28,12 +28,14 @@
 <!--            <class name="Tests.HomeTest" />-->
 <!--            <class name="Tests.LoginTest" />-->
 <!--            <class name="Tests.RegisterTest" />-->
-<!--             <class name="Tests.DataStructureTest" />-->
+<!--            <class name="Tests.ArrayTest" />-->
+<!--            <class name="Tests.DataStructureTest" />-->
+<!--            <class name="Tests.GraphTest" />-->
 <!--            <class name="Tests.LinkedListTest" />-->
 <!--            <class name="Tests.QueueTest" />-->
 <!--            <class name="Tests.StackTest" />-->
 <!--            <class name="Tests.TreeTest" />-->
-<!--        </classes>-->
+<!--       </classes>-->
 <!--    </test>-->
     
 <!--    <test name="EdgeTest">-->
@@ -43,11 +45,13 @@
 <!--            <class name="Tests.HomeTest" />-->
 <!--            <class name="Tests.LoginTest" />-->
 <!--            <class name="Tests.RegisterTest" />-->
-<!--             <class name="Tests.DataStructureTest" />-->
+<!--            <class name="Tests.ArrayTest" />-->
+<!--            <class name="Tests.DataStructureTest" />-->
+<!--            <class name="Tests.GraphTest" />-->
 <!--            <class name="Tests.LinkedListTest" />-->
 <!--            <class name="Tests.QueueTest" />-->
 <!--            <class name="Tests.StackTest" />-->
 <!--            <class name="Tests.TreeTest" />-->
-<!--        </classes>-->
+<!--       </classes>-->
 <!--    </test>-->
 </suite>
