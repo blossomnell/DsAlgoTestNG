@@ -11,6 +11,7 @@ import java.io.IOException;
 public class TestDataProvider {
 	 
 
+
     @DataProvider(name = "LoginData")
     public Object[][] getLoginData() throws IOException {
         return getExcelData("Login");
@@ -31,6 +32,33 @@ public class TestDataProvider {
 	        return getExcelData("LinkedList"); 
 	    }
 	    
+	    
+	    @DataProvider(name = "ArrayData")
+	    public Object[][] getExcelDataForArray() throws IOException {
+	        return getExcelData("python PQ"); 
+	    }
+
+		@DataProvider(name = "ArrayData-SearchArray")
+		public Object[][] getExcelDataForArraySearchArray() throws IOException {
+			return getExcelData("SearchArray");
+		}
+
+	@DataProvider(name = "ArrayData-MaxConsecutive")
+	public Object[][] getExcelDataForArrayMaxConsecutive() throws IOException {
+		return getExcelData("MaxConsecutive");
+	}
+
+	@DataProvider(name = "ArrayData-FindEventNum")
+	public Object[][] getExcelDataForArrayFindEventNum() throws IOException {
+		return getExcelData("FindEventNum");
+	}
+
+	@DataProvider(name = "ArrayData-SquareSorted")
+	public Object[][] getExcelDataForArraySquareSorted() throws IOException {
+		return getExcelData("SquareSorted");
+	}
+
+
 	    
 	    private Object[][] getExcelData(String sheetName) throws IOException {
 	        String excelFilePath = "src/test/resources/Excel/TestData.xlsx";

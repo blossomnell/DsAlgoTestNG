@@ -2,9 +2,22 @@
 allure-results/
 test-output/
 <<<<<<< HEAD
+/screenshots
+screenshots/testCodeExecutionWithExcelData1.png
+screenshots/testCodeExecutionWithExcelData1.png
+screenshots/testCodeExecutionWithExcelData1.png
+/.idea
+/screenshots
+*.java~
+*.xml~
+*.log
+/.allure
+=======
+<<<<<<< HEAD
 =======
 /.allure
 *.log
 *.log
 >>>>>>> de8cf0a479ea1e6a349befd94fb8900382519bd4
+>>>>>>> 023fa4995cbc205b65627c33f699895e14349c46
 /screenshots
