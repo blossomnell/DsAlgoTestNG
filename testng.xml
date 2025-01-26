@@ -3,8 +3,7 @@
 <suite  name="TestSuite" parallel="false" thread-count="3">
 <listeners>
     <listener class-name="org.testng.reporters.XMLReporter" />
-
-        <listener class-name="Utilities.TestListener" /> 
+    <listener class-name="Utilities.TestListener" /> 
     </listeners>   
     <test name="ChromeTest">
         <parameter name="browser" value="chrome" />

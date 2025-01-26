@@ -36,7 +36,7 @@ public class DataStructurePage {
 	@FindBy(xpath = "//h4[text()='Data Structures-Introduction']")
 	WebElement pageTitle;
 
-	@FindBy(xpath = "//a[@href='time-complexity' and text()='Time Complexit']")
+	@FindBy(xpath = "//a[@href='time-complexity' and text()='Time Complexity']")
 	WebElement timeComplexityLink;
 
 	@FindBy(xpath = "//p[@class='bg-secondary text-white' and text()='Time Complexity']")
