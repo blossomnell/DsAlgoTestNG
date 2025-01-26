@@ -4,7 +4,7 @@
 <listeners>
     <listener class-name="org.testng.reporters.XMLReporter" />
     <listener class-name="Utilities.TestListener" /> 
-    </listeners>   
+    </listeners>
     <test name="ChromeTest">
         <parameter name="browser" value="chrome" />
         <parameter name="headless" value="false" />
